@@ -128,7 +128,51 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\ComputerInteractionUI\ComputerInteractionUI.cpp" />
+    <ClCompile Include="Source\Controllers\PlayerController.cpp" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\HelloWorldGame.cpp" />
+    <ClCompile Include="Source\Screens\Levels\Level1.cpp" />
+    <ClCompile Include="Source\Screens\TerminalScreen.cpp" />
+    <ClCompile Include="Source\Screens\LevelScreen.cpp" />
+    <ClCompile Include="Source\Screens\MainMenuScreen.cpp" />
+    <ClCompile Include="Source\Screens\SplashScreen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\Audio\ButtonHover.wav" />
+    <Media Include="Resources\Audio\ButtonPressed.wav" />
+    <Media Include="Resources\Audio\HorrorOfSelf.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\Fonts\Arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fragment Shaders\sprite.frag" />
+    <None Include="Resources\Fragment Shaders\text.frag" />
+    <None Include="Resources\Geometry Shaders\sprite.geom" />
+    <None Include="Resources\Vertex Shaders\sprite.vert" />
+    <None Include="Resources\Vertex Shaders\text.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Textures\Sprites\ComputerTerminal.png" />
+    <Image Include="Resources\Textures\Sprites\MetalDoor.png" />
+    <Image Include="Resources\Textures\Sprites\Scientist.png" />
+    <Image Include="Resources\Textures\Sprites\UI\ButtonDefault.png" />
+    <Image Include="Resources\Textures\Sprites\UI\ButtonHighlighted.png" />
+    <Image Include="Resources\Textures\Sprites\UI\ButtonPressed.png" />
+    <Image Include="Resources\Textures\Sprites\UI\Logo.png" />
+    <Image Include="Resources\Textures\Sprites\UI\Rectangle.png" />
+    <Image Include="Resources\Textures\Sprites\UI\UpDirectionIndicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\ComputerInteractionUI\ComputerInteractionUI.h" />
+    <ClInclude Include="Headers\Controllers\PlayerController.h" />
+    <ClInclude Include="Headers\HelloWorldGame.h" />
+    <ClInclude Include="Headers\Screens\LevelScreen.h" />
+    <ClInclude Include="Headers\Screens\Levels\Level1.h" />
+    <ClInclude Include="Headers\Screens\MainMenuScreen.h" />
+    <ClInclude Include="Headers\Screens\SplashScreen.h" />
+    <ClInclude Include="Headers\Screens\TerminalScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
