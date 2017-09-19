@@ -32,14 +32,13 @@ namespace HW
     // Create terminal
     {
       const Handle<GameObject>& terminalTextBox = terminal.createGameObject(kGUI, glm::vec3(10, viewportDimensions.y - 10, 0), "TerminalTextBox");
-      createTextRenderer(terminalTextBox, "", 24);
-      terminalTextBox->addComponent<TextBox>();
+      TextBox::create(terminalTextBox, "", 24);
     }
 
     // Create output text
     {
       const Handle<GameObject>& outputText = terminal.createGameObject(kGUI, glm::vec3(viewportDimensions.x * 0.5f, viewportDimensions.y, 0), "Output");
-      createTextRenderer(outputText, "", 24);
+      TextRenderer::create(outputText, "", 24);
     }
 
     {

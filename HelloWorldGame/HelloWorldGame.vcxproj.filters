@@ -27,9 +27,6 @@
     <ClCompile Include="Source\HelloWorldGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Screens\MainMenuScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Screens\LevelScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -40,6 +37,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Screens\HelloWorldSplashScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -106,9 +106,6 @@
     <ClInclude Include="Headers\HelloWorldGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Screens\MainMenuScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Headers\Screens\Levels\Level1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -119,6 +116,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

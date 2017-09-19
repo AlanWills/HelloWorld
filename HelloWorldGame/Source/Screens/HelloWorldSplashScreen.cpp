@@ -2,7 +2,7 @@
 
 #include "Screens/HelloWorldSplashScreen.h"
 #include "ObjectFX/LimitedLifeTime.h"
-#include "Screens/MainMenuScreen.h"
+#include "Screens/HelloWorldMainMenuScreen.h"
 
 
 namespace HW
@@ -23,7 +23,7 @@ namespace HW
     const Handle<GameObject>& gameObject = splashScreen.createSplashImage(Path("Sprites", "UI", "CelesteEngineLogo.png"));
     gameObject->findComponent<LimitedLifeTime>()->subscribeOnDeathCallback([](const Handle<GameObject>&) -> void
     {
-      createMainMenuScreen();
+      HelloWorldMainMenuScreen::create();
     });
   }
 }
