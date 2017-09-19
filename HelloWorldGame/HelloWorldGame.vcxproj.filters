@@ -27,9 +27,6 @@
     <ClCompile Include="Source\HelloWorldGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Screens\SplashScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Screens\MainMenuScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -40,6 +37,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Screens\Levels\Level1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Screens\SplashScreenCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,9 +74,6 @@
     <Image Include="Resources\Textures\Sprites\UI\ButtonPressed.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Resources\Textures\Sprites\UI\Logo.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Resources\Textures\Sprites\UI\Rectangle.png">
       <Filter>Resource Files</Filter>
     </Image>
@@ -92,6 +89,12 @@
     <Image Include="Resources\Textures\Sprites\Scientist.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\Textures\Sprites\UI\CelesteEngineLogo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Textures\Sprites\UI\CelesteGamesLogo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\ComputerInteractionUI\ComputerInteractionUI.h">
@@ -101,9 +104,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\HelloWorldGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Screens\SplashScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\MainMenuScreen.h">
@@ -116,6 +116,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\TerminalScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Screens\SplashScreenCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

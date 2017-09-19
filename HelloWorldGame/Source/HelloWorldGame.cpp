@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include "HelloWorldGame.h"
-#include "Screens/SplashScreen.h"
+#include "Screens/SplashScreenCreator.h"
 
 
 namespace HW
@@ -11,6 +11,6 @@ namespace HW
   {
     Inherited::onInitialize();
 
-    createSplashScreen();
+    SplashScreenCreator::create();
   }
 }

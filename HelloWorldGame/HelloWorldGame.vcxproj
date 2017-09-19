@@ -136,7 +136,7 @@
     <ClCompile Include="Source\Screens\TerminalScreen.cpp" />
     <ClCompile Include="Source\Screens\LevelScreen.cpp" />
     <ClCompile Include="Source\Screens\MainMenuScreen.cpp" />
-    <ClCompile Include="Source\Screens\SplashScreen.cpp" />
+    <ClCompile Include="Source\Screens\SplashScreenCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav" />
@@ -160,7 +160,8 @@
     <Image Include="Resources\Textures\Sprites\UI\ButtonDefault.png" />
     <Image Include="Resources\Textures\Sprites\UI\ButtonHighlighted.png" />
     <Image Include="Resources\Textures\Sprites\UI\ButtonPressed.png" />
-    <Image Include="Resources\Textures\Sprites\UI\Logo.png" />
+    <Image Include="Resources\Textures\Sprites\UI\CelesteEngineLogo.png" />
+    <Image Include="Resources\Textures\Sprites\UI\CelesteGamesLogo.png" />
     <Image Include="Resources\Textures\Sprites\UI\Rectangle.png" />
     <Image Include="Resources\Textures\Sprites\UI\UpDirectionIndicator.png" />
   </ItemGroup>
@@ -171,7 +172,7 @@
     <ClInclude Include="Headers\Screens\LevelScreen.h" />
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />
     <ClInclude Include="Headers\Screens\MainMenuScreen.h" />
-    <ClInclude Include="Headers\Screens\SplashScreen.h" />
+    <ClInclude Include="Headers\Screens\SplashScreenCreator.h" />
     <ClInclude Include="Headers\Screens\TerminalScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
