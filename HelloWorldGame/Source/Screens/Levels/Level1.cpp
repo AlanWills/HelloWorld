@@ -27,7 +27,7 @@ namespace HW
     {
       const Handle<GameObject>& floorObject = level1.createGameObject(kGUI, glm::vec3(floorSize * 0.5f, 0), "Floor");
 
-      Rendering::createSpriteRenderer(
+      SpriteRenderer::create(
         floorObject,
         Path("Sprites", "UI", "Rectangle.png"),
         floorSize);
@@ -38,7 +38,7 @@ namespace HW
     {
       const Handle<GameObject>& doorObject = level1.createGameObject(kGUI, glm::vec3(viewportDimensions - doorSize * 0.5f, 0), "Door");
 
-      Rendering::createSpriteRenderer(
+      SpriteRenderer::create(
         doorObject,
         Path("Sprites", "MetalDoor.png"),
         doorSize);

@@ -36,7 +36,7 @@ namespace HW
 
       m_icon = gameObject->allocateGameObjectInSameLayer();
       m_icon->getTransform()->setTranslation(gameObject->getTransform()->getTranslation() + glm::vec3(0, 100, 0.01f));
-      const Handle<SpriteRenderer>& iconRenderer = createSpriteRenderer(m_icon, Path("Sprites", "UI", "UpDirectionIndicator.png"));
+      const Handle<SpriteRenderer>& iconRenderer = SpriteRenderer::create(m_icon, Path("Sprites", "UI", "UpDirectionIndicator.png"));
       m_icon->setShouldRender(false);
     }
 

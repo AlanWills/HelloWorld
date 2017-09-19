@@ -23,7 +23,7 @@ namespace HW
   Handle<GameObject> LevelScreen::createPlayer(const glm::vec2& size, const glm::vec3& translation)
   {
     const Handle<GameObject>& player = createGameObject(kGUI, translation, "Player");
-    createSpriteRenderer(
+    SpriteRenderer::create(
       player,
       Path("Sprites", "UI", "Rectangle.png"),
       size,
@@ -47,7 +47,7 @@ namespace HW
   Handle<GameObject> LevelScreen::createTerminal(const glm::vec2& size, const glm::vec3& translation)
   {
     const Handle<GameObject>& terminal = createGameObject(kGUI, translation, "Terminal");
-    createSpriteRenderer(
+    SpriteRenderer::create(
       terminal,
       Path("Sprites", "ComputerTerminal.png"),
       size);
