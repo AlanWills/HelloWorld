@@ -132,11 +132,11 @@
     <ClCompile Include="Source\Controllers\PlayerController.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\HelloWorldGame.cpp" />
+    <ClCompile Include="Source\Screens\HelloWorldSplashScreen.cpp" />
     <ClCompile Include="Source\Screens\Levels\Level1.cpp" />
     <ClCompile Include="Source\Screens\TerminalScreen.cpp" />
     <ClCompile Include="Source\Screens\LevelScreen.cpp" />
     <ClCompile Include="Source\Screens\MainMenuScreen.cpp" />
-    <ClCompile Include="Source\Screens\SplashScreenCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav" />
@@ -169,10 +169,10 @@
     <ClInclude Include="Headers\ComputerInteractionUI\ComputerInteractionUI.h" />
     <ClInclude Include="Headers\Controllers\PlayerController.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
+    <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h" />
     <ClInclude Include="Headers\Screens\LevelScreen.h" />
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />
     <ClInclude Include="Headers\Screens\MainMenuScreen.h" />
-    <ClInclude Include="Headers\Screens\SplashScreenCreator.h" />
     <ClInclude Include="Headers\Screens\TerminalScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

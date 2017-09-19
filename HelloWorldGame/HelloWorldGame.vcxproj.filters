@@ -39,7 +39,7 @@
     <ClCompile Include="Source\Screens\Levels\Level1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Screens\SplashScreenCreator.cpp">
+    <ClCompile Include="Source\Screens\HelloWorldSplashScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -118,7 +118,7 @@
     <ClInclude Include="Headers\Screens\TerminalScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Screens\SplashScreenCreator.h">
+    <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
