@@ -137,6 +137,7 @@
     <ClCompile Include="Source\Screens\TerminalScreen.cpp" />
     <ClCompile Include="Source\Screens\LevelScreen.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp" />
+    <ClCompile Include="Source\UI\MainMenuTitleEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h" />
     <ClInclude Include="Headers\Screens\TerminalScreen.h" />
+    <ClInclude Include="Headers\UI\MainMenuTitleEffect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
