@@ -128,13 +128,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\ComputerInteractionUI\ComputerInteractionUI.cpp" />
     <ClCompile Include="Source\Controllers\PlayerController.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\HelloWorldGame.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldSplashScreen.cpp" />
     <ClCompile Include="Source\Screens\Levels\Level1.cpp" />
-    <ClCompile Include="Source\Screens\TerminalScreen.cpp" />
     <ClCompile Include="Source\Screens\LevelScreen.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp" />
     <ClCompile Include="Source\UI\MainMenuTitleEffect.cpp" />
@@ -142,6 +140,9 @@
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav" />
     <Media Include="Resources\Audio\ButtonPressed.wav" />
+    <Media Include="Resources\Audio\KeyPresses\KeyPress1.wav" />
+    <Media Include="Resources\Audio\KeyPresses\KeyPress2.wav" />
+    <Media Include="Resources\Audio\KeyPresses\KeyPress3.wav" />
     <Media Include="Resources\Audio\HorrorOfSelf.wav" />
   </ItemGroup>
   <ItemGroup>
@@ -167,14 +168,12 @@
     <Image Include="Resources\Textures\Sprites\UI\UpDirectionIndicator.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\ComputerInteractionUI\ComputerInteractionUI.h" />
     <ClInclude Include="Headers\Controllers\PlayerController.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
     <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h" />
     <ClInclude Include="Headers\Screens\LevelScreen.h" />
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h" />
-    <ClInclude Include="Headers\Screens\TerminalScreen.h" />
     <ClInclude Include="Headers\UI\MainMenuTitleEffect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

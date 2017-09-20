@@ -5,7 +5,6 @@
 #include "Input/KeyboardRigidBody2DController.h"
 #include "Rendering/SpriteRenderer.h"
 #include "Controllers/PlayerController.h"
-#include "ComputerInteractionUI/ComputerInteractionUI.h"
 
 
 using namespace CelesteEngine::Physics;
@@ -44,19 +43,25 @@ namespace HW
   }
 
   //------------------------------------------------------------------------------------------------
-  Handle<GameObject> LevelScreen::createTerminal(const glm::vec2& size, const glm::vec3& translation)
+  Handle<GameObject> LevelScreen::createTerminalUI()
   {
-    const Handle<GameObject>& terminal = createGameObject(kGUI, translation, "Terminal");
-    SpriteRenderer::create(
-      terminal,
-      Path("Sprites", "ComputerTerminal.png"),
-      size);
+    const glm::vec2& viewportDimensions = getViewportDimensions();
 
-    const Handle<RectangleCollider>& terminalCollider = terminal->addComponent<RectangleCollider>();
-    terminalCollider->setDimensions(terminal->findComponent<Renderer>()->getDimensions());
+    const Handle<GameObject>& grouper = createGameObject(kGUI, glm::vec2(viewportDimensions.x * 0.8, viewportDimensions.y * 0.5f), "TerminalGrouper");
+    SpriteRenderer::create(grouper, Path("Sprites", "UI", "Rectangle.png"), glm::vec4(0, 0, 0, 1));
 
-    terminal->addComponent<HWUI::ComputerInteractionUI>();
+    // Create input text box
+    {
+      const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(10, viewportDimensions.y - 10, 0), "TerminalTextBox");
+      //TextBox::create(terminalTextBox, "", 24);
+    }
 
-    return terminal;
+    // Create output text
+    {
+      const Handle<GameObject>& outputText = createGameObject(kGUI, glm::vec3(viewportDimensions.x * 0.5f, viewportDimensions.y, 0), "Output");
+      //TextRenderer::create(outputText, "", 24);
+    }
+
+    return grouper;
   }
 }

@@ -1,7 +1,6 @@
 #include "stdafx.h"
 
 #include "Screens/Levels/Level1.h"
-#include "Screens/TerminalScreen.h"
 #include "Controllers/PlayerController.h"
 #include "Rendering/SpriteRenderer.h"
 
@@ -45,9 +44,8 @@ namespace HW
     }
 
     // Create terminal
-    glm::vec2 terminalSize = glm::vec2(90, 90);
     {
-      level1.createTerminal(terminalSize, glm::vec3(viewportDimensions.x * 0.5f, floorSize.y + terminalSize.y * 0.5f, 0));
+      level1.createTerminalUI();
     }
 
     // Create player

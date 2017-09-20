@@ -13,7 +13,7 @@ class LevelScreen : public CelesteEngine::ScreenCreator
 
   protected:
     Handle<GameObject> createPlayer(const glm::vec2& size, const glm::vec3& translation);
-    Handle<GameObject> createTerminal(const glm::vec2& size, const glm::vec3& translation);
+    Handle<GameObject> createTerminalUI();
 
   private:
     typedef ScreenCreator Inherited;

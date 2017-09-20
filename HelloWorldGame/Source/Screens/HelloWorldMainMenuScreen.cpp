@@ -6,7 +6,6 @@
 #include "UI/StackPanel.h"
 #include "Game/Game.h"
 #include "Screens/Levels/Level1.h"
-#include "Screens/TerminalScreen.h"
 #include "UI/MainMenuTitleEffect.h"
 #include "UI/TextBox.h"
 
@@ -37,8 +36,6 @@ namespace HW
       {
         caller->getOwnerScreen()->die();
         Level1::create();
-        TerminalScreen::create();
-        deactivateScreen("Terminal");
       }
     );
 

@@ -18,9 +18,6 @@
     <ClCompile Include="Source\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ComputerInteractionUI\ComputerInteractionUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Controllers\PlayerController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -28,9 +25,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Screens\LevelScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Screens\TerminalScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Screens\Levels\Level1.cpp">
@@ -54,6 +48,15 @@
       <Filter>Resource Files</Filter>
     </Media>
     <Media Include="Resources\Audio\HorrorOfSelf.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\Audio\KeyPresses\KeyPress1.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\Audio\KeyPresses\KeyPress2.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\Audio\KeyPresses\KeyPress3.wav">
       <Filter>Resource Files</Filter>
     </Media>
   </ItemGroup>
@@ -100,9 +103,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\ComputerInteractionUI\ComputerInteractionUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Headers\Controllers\PlayerController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -113,9 +113,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\LevelScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Screens\TerminalScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h">
