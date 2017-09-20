@@ -5,10 +5,14 @@
 #include "Input/KeyboardRigidBody2DController.h"
 #include "Rendering/SpriteRenderer.h"
 #include "Controllers/PlayerController.h"
+#include "Rendering/TextRenderer.h"
+#include "UI/TextBox.h"
+#include "Input/TerminalActivationHandler.h"
 
 
 using namespace CelesteEngine::Physics;
 using namespace CelesteEngine::Input;
+using namespace CelesteEngine::UI;
 
 namespace HW
 {
@@ -47,19 +51,21 @@ namespace HW
   {
     const glm::vec2& viewportDimensions = getViewportDimensions();
 
-    const Handle<GameObject>& grouper = createGameObject(kGUI, glm::vec2(viewportDimensions.x * 0.8, viewportDimensions.y * 0.5f), "TerminalGrouper");
-    SpriteRenderer::create(grouper, Path("Sprites", "UI", "Rectangle.png"), glm::vec4(0, 0, 0, 1));
+    const Handle<GameObject>& grouper = createGameObject(kGUI, glm::vec3(viewportDimensions.x * 0.8, viewportDimensions.y * 0.5f, 0.1f), "TerminalGrouper");
+    SpriteRenderer::create(grouper, Path("Sprites", "UI", "Rectangle.png"), glm::vec4(1, 1, 1, 1));
+    Input::TerminalActivationHandler::create(grouper, GLFW_KEY_UP, GLFW_KEY_DOWN);
+    grouper->getTransform()->setScale(400, 400);
 
     // Create input text box
     {
       const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(10, viewportDimensions.y - 10, 0), "TerminalTextBox");
-      //TextBox::create(terminalTextBox, "", 24);
+      TextBox::create(terminalTextBox, "", 24);
     }
 
     // Create output text
     {
-      const Handle<GameObject>& outputText = createGameObject(kGUI, glm::vec3(viewportDimensions.x * 0.5f, viewportDimensions.y, 0), "Output");
-      //TextRenderer::create(outputText, "", 24);
+      const Handle<GameObject>& outputText = createGameObject(kGUI, glm::vec3(viewportDimensions.x * 0.5f, viewportDimensions.y, 0), "TerminalOutput");
+      TextRenderer::create(outputText, "", 24);
     }
 
     return grouper;

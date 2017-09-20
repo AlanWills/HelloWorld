@@ -82,8 +82,7 @@ namespace HW
 
         if (!m_keyPressAudio.empty())
         {
-          size_t index = m_generator.generate(0, m_keyPressAudio.size() - 1);
-          m_keyPressAudio[index]->play();
+          m_keyPressAudio[m_generator.generate(0, m_keyPressAudio.size() - 1)]->play();
         }
       }
     }
