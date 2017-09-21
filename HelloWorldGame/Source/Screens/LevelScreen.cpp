@@ -60,22 +60,19 @@ namespace HW
 
     // Create background
     {
-      const Handle<GameObject>& background = createGameObject(kGUI, glm::vec2(0.1f), "TerminalBackground");
-      background->getTransform()->setParent(grouper->getTransform());
+      const Handle<GameObject>& background = createGameObject(kGUI, glm::vec2(0.1f), "TerminalBackground", grouper);
       SpriteRenderer::create(background, Path("Sprites", "UI", "Rectangle.png"), glm::vec2(400, 400), glm::vec4(0.1f, 0.1f, 0.1f, 1));
     }
 
     // Create input text box
     {
-      const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(0, 0, 0.1f), "TerminalTextBox");
-      terminalTextBox->getTransform()->setParent(grouper->getTransform());
+      const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(0, 0, 0.1f), "TerminalTextBox", grouper);
       TextBox::create(terminalTextBox, "", 24);
     }
 
     // Create output text
     {
-      const Handle<GameObject>& outputText = createGameObject(kGUI, glm::vec2(0, -100), "TerminalOutput");
-      outputText->getTransform()->setParent(grouper->getTransform());
+      const Handle<GameObject>& outputText = createGameObject(kGUI, glm::vec2(0, -100), "TerminalOutput", grouper);
       TextRenderer::create(outputText, "", 24);
     }
 
