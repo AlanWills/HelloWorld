@@ -40,29 +40,23 @@ namespace HW
 
       if (isKeyDown(m_activationKey))
       {
-        gameObject->setActive(true);
-        gameObject->setShouldRender(true);
-
-        const Handle<GameObject>& terminalTextBox = gameObject->getOwnerScreen()->findGameObjectWithName("TerminalTextBox");
-        terminalTextBox->setActive(true);
-        terminalTextBox->setShouldRender(true);
-
-        const Handle<GameObject>& terminalOutput = gameObject->getOwnerScreen()->findGameObjectWithName("TerminalOutput");
-        terminalOutput->setActive(true);
-        terminalOutput->setShouldRender(true);
+        const Handle<Transform>& transform = gameObject->getTransform();
+        for (size_t i = 0, n = transform->getChildCount(); i < n; ++i)
+        {
+          const Handle<GameObject>& child = transform->getChildGameObject(i);
+          child->setActive(true);
+          child->setShouldRender(true);
+        }
       }
       else if (isKeyDown(m_deactivationKey))
       {
-        gameObject->setActive(false);
-        gameObject->setShouldRender(false);
-
-        const Handle<GameObject>& terminalTextBox = gameObject->getOwnerScreen()->findGameObjectWithName("TerminalTextBox");
-        terminalTextBox->setActive(false);
-        terminalTextBox->setShouldRender(false);
-
-        const Handle<GameObject>& terminalOutput = gameObject->getOwnerScreen()->findGameObjectWithName("TerminalOutput");
-        terminalOutput->setActive(false);
-        terminalOutput->setShouldRender(false);
+        const Handle<Transform>& transform = gameObject->getTransform();
+        for (size_t i = 0, n = transform->getChildCount(); i < n; ++i)
+        {
+          const Handle<GameObject>& child = transform->getChildGameObject(i);
+          child->setActive(false);
+          child->setShouldRender(false);
+        }
       }
     }
 
