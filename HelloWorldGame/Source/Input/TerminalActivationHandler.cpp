@@ -40,34 +40,28 @@ namespace HW
 
       if (isKeyDown(m_activationKey))
       {
-        //gameObject->setShouldHandleInput(true);
-        gameObject->setShouldUpdate(true);
+        gameObject->setActive(true);
         gameObject->setShouldRender(true);
 
         const Handle<GameObject>& terminalTextBox = gameObject->getOwnerScreen()->findGameObjectWithName("TerminalTextBox");
-        terminalTextBox->setShouldHandleInput(true);
-        terminalTextBox->setShouldUpdate(true);
+        terminalTextBox->setActive(true);
         terminalTextBox->setShouldRender(true);
 
         const Handle<GameObject>& terminalOutput = gameObject->getOwnerScreen()->findGameObjectWithName("TerminalOutput");
-        terminalOutput->setShouldHandleInput(true);
-        terminalOutput->setShouldUpdate(true);
+        terminalOutput->setActive(true);
         terminalOutput->setShouldRender(true);
       }
       else if (isKeyDown(m_deactivationKey))
       {
-        //gameObject->setShouldHandleInput(false);
-        gameObject->setShouldUpdate(false);
+        gameObject->setActive(false);
         gameObject->setShouldRender(false);
 
         const Handle<GameObject>& terminalTextBox = gameObject->getOwnerScreen()->findGameObjectWithName("TerminalTextBox");
-        terminalTextBox->setShouldHandleInput(false);
-        terminalTextBox->setShouldUpdate(false);
+        terminalTextBox->setActive(false);
         terminalTextBox->setShouldRender(false);
 
         const Handle<GameObject>& terminalOutput = gameObject->getOwnerScreen()->findGameObjectWithName("TerminalOutput");
-        terminalOutput->setShouldHandleInput(false);
-        terminalOutput->setShouldUpdate(false);
+        terminalOutput->setActive(false);
         terminalOutput->setShouldRender(false);
       }
     }
