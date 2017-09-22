@@ -40,6 +40,8 @@ namespace HW
 
       if (isKeyDown(m_activationKey))
       {
+        getGameObject()->getOwnerScreen()->findGameObjectWithName("LevelRoot")->setActive(false);
+
         const Handle<Transform>& transform = gameObject->getTransform();
         for (size_t i = 0, n = transform->getChildCount(); i < n; ++i)
         {
@@ -50,6 +52,8 @@ namespace HW
       }
       else if (isKeyDown(m_deactivationKey))
       {
+        getGameObject()->getOwnerScreen()->findGameObjectWithName("LevelRoot")->setActive(true);
+
         const Handle<Transform>& transform = gameObject->getTransform();
         for (size_t i = 0, n = transform->getChildCount(); i < n; ++i)
         {
