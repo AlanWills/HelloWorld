@@ -3,6 +3,7 @@
 #include "Screens/HelloWorldSplashScreen.h"
 #include "ObjectFX/LimitedLifeTime.h"
 #include "Screens/HelloWorldMainMenuScreen.h"
+#include "Input/SplashScreenLogoSkipper.h"
 
 
 namespace HW
@@ -19,9 +20,12 @@ namespace HW
     const Handle<Screen>& screen = Screen::allocate();
 
     HelloWorldSplashScreen splashScreen(screen);
-    splashScreen.createSplashImage(Path("Sprites", "UI", "CelesteGamesLogo.png"));
-    const Handle<GameObject>& gameObject = splashScreen.createSplashImage(Path("Sprites", "UI", "CelesteEngineLogo.png"));
-    gameObject->findComponent<LimitedLifeTime>()->subscribeOnDeathCallback([](const Handle<GameObject>&) -> void
+    const Handle<GameObject>& firstLogo = splashScreen.createSplashImage(Path("Sprites", "UI", "CelesteGamesLogo.png"));
+    firstLogo->addComponent<Input::SplashScreenLogoSkipper>();
+    
+    const Handle<GameObject>& secondLogo = splashScreen.createSplashImage(Path("Sprites", "UI", "CelesteEngineLogo.png"));
+    secondLogo->addComponent<Input::SplashScreenLogoSkipper>();
+    secondLogo->findComponent<LimitedLifeTime>()->subscribeOnDeathCallback([](const Handle<GameObject>&) -> void
     {
       HelloWorldMainMenuScreen::create();
     });

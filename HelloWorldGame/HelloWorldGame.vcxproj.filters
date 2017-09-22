@@ -42,6 +42,9 @@
     <ClCompile Include="Source\Input\TerminalActivationHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav">
@@ -128,6 +131,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Input\TerminalActivationHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

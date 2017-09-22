@@ -27,7 +27,7 @@ namespace HW
 
     const glm::vec2& viewportDimensions = mainMenu.getViewportDimensions();
     const Handle<GameObject>& title = mainMenu.createGameObject(kGUI, glm::vec2(viewportDimensions.x * 0.5f, viewportDimensions.y * 0.8f), "Title");
-    UI::TextBox::create(title, "", 32);
+    UI::TextBox::create(title, "", 32, Horizontal::kCentre);
     title->addComponent<MainMenuTitleEffect>();
 
     const Handle<GameObject>& playGameButton = mainMenu.createGameObject(kGUI, glm::vec2(), "PlayButton");

@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Controllers\PlayerController.cpp" />
+    <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
     <ClCompile Include="Source\Input\TerminalActivationHandler.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\HelloWorldGame.cpp" />
@@ -171,6 +172,7 @@
   <ItemGroup>
     <ClInclude Include="Headers\Controllers\PlayerController.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
+    <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
     <ClInclude Include="Headers\Input\TerminalActivationHandler.h" />
     <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h" />
     <ClInclude Include="Headers\Screens\LevelScreen.h" />
