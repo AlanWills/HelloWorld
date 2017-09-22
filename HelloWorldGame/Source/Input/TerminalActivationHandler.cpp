@@ -17,7 +17,8 @@ namespace HW
     //------------------------------------------------------------------------------------------------
     TerminalActivationHandler::TerminalActivationHandler() :
       m_activationKey(-1),
-      m_deactivationKey(-1)
+      m_deactivationKey(-1),
+      m_levelRoot()
     {
     }
 
@@ -27,20 +28,28 @@ namespace HW
     }
 
     //------------------------------------------------------------------------------------------------
+    void TerminalActivationHandler::onSetGameObject(const Handle<GameObject>& gameObject)
+    {
+      Inherited::onSetGameObject(gameObject);
+
+      m_levelRoot = gameObject->getOwnerScreen()->findGameObjectWithName("LevelRoot");
+    }
+
+    //------------------------------------------------------------------------------------------------
     void TerminalActivationHandler::onHandleInput()
     {
       Inherited::onHandleInput();
 
       const Handle<GameObject>& gameObject = getGameObject();
-      if (gameObject.is_null())
+      if (gameObject.is_null() || m_levelRoot.is_null())
       {
         ASSERT_FAIL();
         return;
       }
 
-      if (isKeyDown(m_activationKey))
+      if (m_levelRoot->isActive() && isKeyDown(m_activationKey))
       {
-        getGameObject()->getOwnerScreen()->findGameObjectWithName("LevelRoot")->setActive(false);
+        m_levelRoot->setActive(false);
 
         const Handle<Transform>& transform = gameObject->getTransform();
         for (size_t i = 0, n = transform->getChildCount(); i < n; ++i)
@@ -50,9 +59,9 @@ namespace HW
           child->setShouldRender(true);
         }
       }
-      else if (isKeyDown(m_deactivationKey))
+      else if (!m_levelRoot->isActive() && isKeyDown(m_deactivationKey))
       {
-        getGameObject()->getOwnerScreen()->findGameObjectWithName("LevelRoot")->setActive(true);
+        m_levelRoot->setActive(true);
 
         const Handle<Transform>& transform = gameObject->getTransform();
         for (size_t i = 0, n = transform->getChildCount(); i < n; ++i)
@@ -71,6 +80,7 @@ namespace HW
 
       m_activationKey = -1;
       m_deactivationKey = -1;
+      m_levelRoot.reset();
     }
 
     //------------------------------------------------------------------------------------------------

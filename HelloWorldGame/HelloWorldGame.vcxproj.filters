@@ -48,6 +48,9 @@
     <ClCompile Include="Source\Input\TerminalInputHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Compiler\Compiler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav">
@@ -66,6 +69,9 @@
       <Filter>Resource Files</Filter>
     </Media>
     <Media Include="Resources\Audio\KeyPresses\KeyPress3.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Resources\Audio\StartupMusic.wav">
       <Filter>Resource Files</Filter>
     </Media>
   </ItemGroup>
@@ -110,6 +116,9 @@
     <Image Include="Resources\Textures\Sprites\UI\CelesteGamesLogo.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\Textures\Sprites\TerminalBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Controllers\PlayerController.h">
@@ -140,6 +149,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Input\TerminalInputHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Compiler\Compiler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,7 +9,7 @@ namespace HW
 {
   //------------------------------------------------------------------------------------------------
   Level1::Level1(const Handle<Screen>& screen) :
-    Inherited(screen, "Level1")
+    Inherited(screen)
   {
   }
 

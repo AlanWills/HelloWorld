@@ -9,7 +9,7 @@ namespace HW
 class LevelScreen : public CelesteEngine::ScreenCreator
 {
   public:
-    LevelScreen(const Handle<Screen>& screen, const std::string& name = "");
+    LevelScreen(const Handle<Screen>& screen, const std::string& name = "LevelScreen");
 
   protected:
     Handle<GameObject> createPlayer(const glm::vec2& size, const glm::vec3& translation);

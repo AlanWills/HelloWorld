@@ -57,24 +57,16 @@ namespace HW
 
     // Create background
     {
-      const Handle<GameObject>& background = createGameObject(kGUI, glm::vec3(), "TerminalBackground", grouper);
-      SpriteRenderer::create(background, Path("Sprites", "UI", "Rectangle.png"), glm::vec2(viewportDimensions.x * 0.4f, viewportDimensions.y), glm::vec4(0, 0, 0, 1));
+      const Handle<GameObject>& background = createGameObject(kGUI, glm::vec2(), "TerminalBackground", grouper);
+      SpriteRenderer::create(background, Path("Sprites", "TerminalBackground.png"), glm::vec2(viewportDimensions.x * 0.4f, viewportDimensions.y));
       background->setActive(false);
       background->setShouldRender(false);
-    }
-
-    // Create output text
-    {
-      const Handle<GameObject>& outputText = createGameObject(kGUI, glm::vec2(0, -100), "TerminalOutput", grouper);
-      TextRenderer::create(outputText, "", 24);
-      outputText->setActive(false);
-      outputText->setShouldRender(false);
     }
 
     // Create input text box
     {
       const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(-viewportDimensions.x * 0.2f, viewportDimensions.y * 0.5f, 0.1f), "TerminalTextBox", grouper);
-      TextBox::create(terminalTextBox, "> ", 24, Horizontal::kLeft, Vertical::kTop);
+      TextBox::create(terminalTextBox, "> ", 24, Horizontal::kLeft, Vertical::kTop, glm::vec4(0, 1, 0, 1));
       terminalTextBox->setActive(false);
       terminalTextBox->setShouldRender(false);
       terminalTextBox->addComponent<TerminalInputHandler>();

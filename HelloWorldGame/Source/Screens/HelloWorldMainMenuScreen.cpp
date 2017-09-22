@@ -35,6 +35,7 @@ namespace HW
       [](const Handle<GameObject>& caller) -> void
       {
         caller->getOwnerScreen()->die();
+        getScreenManager()->findScreen("Persistent")->die();
         Level1::create();
       }
     );

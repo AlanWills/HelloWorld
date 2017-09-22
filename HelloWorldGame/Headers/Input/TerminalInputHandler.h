@@ -9,11 +9,6 @@ namespace CelesteEngine
   {
     class TextBox;
   }
-
-  namespace Rendering
-  {
-    class TextRenderer;
-  }
 }
 
 namespace HW
@@ -34,8 +29,10 @@ namespace HW
       private:
         typedef CelesteEngine::Script Inherited;
 
+        void onKeyDown(int key);
+
         Handle<CelesteEngine::UI::TextBox> m_terminalTextBox;
-        Handle<CelesteEngine::Rendering::TextRenderer> m_terminalOutput;
+        StringId m_eventName;
     };
   }
 }

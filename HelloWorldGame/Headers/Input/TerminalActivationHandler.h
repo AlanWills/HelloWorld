@@ -22,6 +22,7 @@ namespace HW
         static Handle<TerminalActivationHandler> create(const Handle<GameObject>& gameObject, int activationKey, int deactivationKey);
 
       protected:
+        void onSetGameObject(const Handle<GameObject>& gameObject) override;
         void onHandleInput() override;
         void onDeath() override;
 
@@ -30,6 +31,8 @@ namespace HW
 
         int m_activationKey;
         int m_deactivationKey;
+
+        Handle<GameObject> m_levelRoot;
     };
   }
 }

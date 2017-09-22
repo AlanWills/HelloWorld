@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Compiler\Compiler.cpp" />
     <ClCompile Include="Source\Controllers\PlayerController.cpp" />
     <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
     <ClCompile Include="Source\Input\TerminalActivationHandler.cpp" />
@@ -147,6 +148,7 @@
     <Media Include="Resources\Audio\KeyPresses\KeyPress2.wav" />
     <Media Include="Resources\Audio\KeyPresses\KeyPress3.wav" />
     <Media Include="Resources\Audio\HorrorOfSelf.wav" />
+    <Media Include="Resources\Audio\StartupMusic.wav" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\Fonts\Arial.ttf" />
@@ -162,6 +164,7 @@
     <Image Include="Resources\Textures\Sprites\ComputerTerminal.png" />
     <Image Include="Resources\Textures\Sprites\MetalDoor.png" />
     <Image Include="Resources\Textures\Sprites\Scientist.png" />
+    <Image Include="Resources\Textures\Sprites\TerminalBackground.png" />
     <Image Include="Resources\Textures\Sprites\UI\ButtonDefault.png" />
     <Image Include="Resources\Textures\Sprites\UI\ButtonHighlighted.png" />
     <Image Include="Resources\Textures\Sprites\UI\ButtonPressed.png" />
@@ -171,6 +174,7 @@
     <Image Include="Resources\Textures\Sprites\UI\UpDirectionIndicator.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Compiler\Compiler.h" />
     <ClInclude Include="Headers\Controllers\PlayerController.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
