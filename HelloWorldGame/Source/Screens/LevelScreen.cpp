@@ -8,6 +8,7 @@
 #include "Rendering/TextRenderer.h"
 #include "UI/TextBox.h"
 #include "Input/TerminalActivationHandler.h"
+#include "Input/TerminalInputHandler.h"
 
 
 using namespace CelesteEngine::Physics;
@@ -28,11 +29,7 @@ namespace HW
   Handle<GameObject> LevelScreen::createPlayer(const glm::vec2& size, const glm::vec3& translation)
   {
     const Handle<GameObject>& player = createGameObject(kGUI, translation, "Player");
-    SpriteRenderer::create(
-      player,
-      Path("Sprites", "UI", "Rectangle.png"),
-      size,
-      glm::vec4(0, 0, 1, 1));
+    SpriteRenderer::create(player, Path("Sprites", "UI", "Rectangle.png"), size, glm::vec4(0, 0, 1, 1));
 
     const Handle<RectangleCollider>& playerCollider = player->addComponent<RectangleCollider>();
     playerCollider->setDimensions(player->findComponent<Renderer>()->getDimensions());
@@ -66,20 +63,21 @@ namespace HW
       background->setShouldRender(false);
     }
 
-    // Create input text box
-    {
-      const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(-viewportDimensions.x * 0.2f, viewportDimensions.y * 0.5f, 0.1f), "TerminalTextBox", grouper);
-      TextBox::create(terminalTextBox, "", 24, Horizontal::kLeft, Vertical::kTop);
-      terminalTextBox->setActive(false);
-      terminalTextBox->setShouldRender(false);
-    }
-
     // Create output text
     {
       const Handle<GameObject>& outputText = createGameObject(kGUI, glm::vec2(0, -100), "TerminalOutput", grouper);
       TextRenderer::create(outputText, "", 24);
       outputText->setActive(false);
       outputText->setShouldRender(false);
+    }
+
+    // Create input text box
+    {
+      const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(-viewportDimensions.x * 0.2f, viewportDimensions.y * 0.5f, 0.1f), "TerminalTextBox", grouper);
+      TextBox::create(terminalTextBox, "> ", 24, Horizontal::kLeft, Vertical::kTop);
+      terminalTextBox->setActive(false);
+      terminalTextBox->setShouldRender(false);
+      terminalTextBox->addComponent<TerminalInputHandler>();
     }
 
     return grouper;
