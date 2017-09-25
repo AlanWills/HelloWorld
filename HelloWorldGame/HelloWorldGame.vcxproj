@@ -129,12 +129,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Compiler\Compiler.cpp" />
-    <ClCompile Include="Source\Controllers\PlayerController.cpp" />
     <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
     <ClCompile Include="Source\Input\TerminalActivationHandler.cpp" />
     <ClCompile Include="Source\Input\TerminalInputHandler.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\HelloWorldGame.cpp" />
+    <ClCompile Include="Source\Physics\PlayerObstacle.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldSplashScreen.cpp" />
     <ClCompile Include="Source\Screens\Levels\Level1.cpp" />
     <ClCompile Include="Source\Screens\LevelScreen.cpp" />
@@ -175,11 +175,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Compiler\Compiler.h" />
-    <ClInclude Include="Headers\Controllers\PlayerController.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
     <ClInclude Include="Headers\Input\TerminalActivationHandler.h" />
     <ClInclude Include="Headers\Input\TerminalInputHandler.h" />
+    <ClInclude Include="Headers\Physics\PlayerObstacle.h" />
     <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h" />
     <ClInclude Include="Headers\Screens\LevelScreen.h" />
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />

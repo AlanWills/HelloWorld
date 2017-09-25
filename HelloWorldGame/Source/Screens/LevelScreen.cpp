@@ -4,7 +4,6 @@
 #include "Physics/RectangleCollider.h"
 #include "Input/KeyboardRigidBody2DController.h"
 #include "Rendering/SpriteRenderer.h"
-#include "Controllers/PlayerController.h"
 #include "Rendering/TextRenderer.h"
 #include "UI/TextBox.h"
 #include "Input/TerminalActivationHandler.h"
@@ -42,8 +41,6 @@ namespace HW
     playerMovement->setLinearVelocityDelta(10, 0);
     playerMovement->setIncrementMode(KeyboardRigidBody2DController::kToggle);
 
-    player->addComponent<PlayerController>();
-
     return player;
   }
 
@@ -52,20 +49,28 @@ namespace HW
   {
     const glm::vec2& viewportDimensions = getViewportDimensions();
 
-    const Handle<GameObject>& grouper = createGameObject(kGUI, glm::vec3(viewportDimensions.x * 0.8f, viewportDimensions.y * 0.5f, 0.1f), "TerminalGrouper");
+    const Handle<GameObject>& grouper = createGameObject(kGUI, glm::vec3(viewportDimensions * 0.5f, 0.1f), "TerminalGrouper");
     TerminalActivationHandler::create(grouper, GLFW_KEY_UP, GLFW_KEY_DOWN);
+
+    // Create black background for whole screen
+    {
+      const Handle<GameObject>& blackBackground = createGameObject(kGUI, glm::vec2(), "BlackBackground", grouper);
+      SpriteRenderer::create(blackBackground, Path("Sprites", "UI", "Rectangle.png"), glm::vec2(viewportDimensions.x, viewportDimensions.y), glm::vec4(0, 0, 0, 0.4f));
+      blackBackground->setActive(false);
+      blackBackground->setShouldRender(false);
+    }
 
     // Create background
     {
-      const Handle<GameObject>& background = createGameObject(kGUI, glm::vec2(), "TerminalBackground", grouper);
-      SpriteRenderer::create(background, Path("Sprites", "TerminalBackground.png"), glm::vec2(viewportDimensions.x * 0.4f, viewportDimensions.y));
+      const Handle<GameObject>& background = createGameObject(kGUI, glm::vec3(0 , 0, 0.1f), "TerminalBackground", grouper);
+      SpriteRenderer::create(background, Path("Sprites", "TerminalBackground.png"), viewportDimensions * 0.6f);
       background->setActive(false);
       background->setShouldRender(false);
     }
 
     // Create input text box
     {
-      const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(-viewportDimensions.x * 0.2f, viewportDimensions.y * 0.5f, 0.1f), "TerminalTextBox", grouper);
+      const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(-viewportDimensions.x * 0.3f, viewportDimensions.y * 0.3f, 0.15f), "TerminalTextBox", grouper);
       TextBox::create(terminalTextBox, "> ", 24, Horizontal::kLeft, Vertical::kTop, glm::vec4(0, 1, 0, 1));
       terminalTextBox->setActive(false);
       terminalTextBox->setShouldRender(false);

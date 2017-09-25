@@ -17,7 +17,7 @@ namespace HW
 
     const Handle<GameObject>& audio = persistent->allocateGameObject(kGUI);
     const Handle<AudioSource>& audioSource = AudioSource::create(audio, Path("StartupMusic.wav"));
-    audioSource->play();
+    //audioSource->play();
 
     HelloWorldSplashScreen::create();
   }
