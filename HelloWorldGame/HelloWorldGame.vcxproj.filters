@@ -54,6 +54,9 @@
     <ClCompile Include="Source\GraphicalFX\TypingTextEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Loading\LevelLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav">
@@ -164,6 +167,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GraphicalFX\TypingTextEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Loading\LevelLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

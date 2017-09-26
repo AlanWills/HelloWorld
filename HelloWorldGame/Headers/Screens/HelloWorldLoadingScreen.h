@@ -3,6 +3,8 @@
 #include "Screens/LevelScreenCreator.h"
 #include "ObjectFX/LimitedLifeTime.h"
 #include "GraphicalFX/TypingTextEffect.h"
+#include "UI/ProgressBar.h"
+#include "Loading/LevelLoader.h"
 
 
 namespace HW
@@ -60,7 +62,9 @@ void HelloWorldLoadingScreen::create()
   // Create the progress bar
   {
     const Handle<GameObject>& progressBar = loadingScreen.createGameObject(kGUI, glm::vec2(viewportDimensions.x * 0.5f, viewportDimensions.y * 0.25f), "ProgressBar");
-    const Handle<SpriteRenderer>& renderer = SpriteRenderer::create(progressBar, Path("Sprites", "UI", "ProgressBar.png"), glm::vec4(0, 1, 0, 1));
+    SpriteRenderer::create(progressBar, Path("Sprites", "UI", "ProgressBar.png"), glm::vec4(0, 1, 0, 1));
+    ProgressBar::create(progressBar, 0, 3);
+    progressBar->addComponent<LevelLoader>();
   }
 }
 

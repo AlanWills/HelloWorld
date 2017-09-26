@@ -28,7 +28,7 @@ namespace HW
   Handle<GameObject> LevelScreenCreator::createPlayer(const glm::vec2& size, const glm::vec3& translation)
   {
     const Handle<GameObject>& player = createGameObject(kGUI, translation, "Player");
-    SpriteRenderer::create(player, Path("Sprites", "UI", "Rectangle.png"), size, glm::vec4(0, 0, 1, 1));
+    SpriteRenderer::create(player, Path("Sprites", "UI", "Rectangle.png"), size, glm::vec4(1, 1, 1, 1));
 
     const Handle<RectangleCollider>& playerCollider = player->addComponent<RectangleCollider>();
     playerCollider->setDimensions(player->findComponent<Renderer>()->getDimensions());
