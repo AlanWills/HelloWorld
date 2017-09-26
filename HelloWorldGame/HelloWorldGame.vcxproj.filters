@@ -21,9 +21,6 @@
     <ClCompile Include="Source\HelloWorldGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Screens\LevelScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Screens\Levels\Level1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,6 +46,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Physics\PlayerObstacle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Screens\HelloWorldLoadingScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Screens\LevelScreenCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,15 +122,15 @@
     <Image Include="Resources\Textures\Sprites\TerminalBackground.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\Textures\Sprites\BinaryBackground.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\HelloWorldGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\Levels\Level1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Screens\LevelScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h">
@@ -152,6 +155,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Physics\PlayerObstacle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Screens\HelloWorldLoadingScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Screens\LevelScreenCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -27,6 +27,12 @@ namespace HW
 
     const Handle<GameObject>& levelRoot = level1.createGameObject(kGUI, glm::vec2(), "LevelRoot");
 
+    // Create background
+    {
+      const Handle<GameObject>& background = level1.createGameObject(kGUI, glm::vec3(viewportDimensions * 0.5f, -0.1f), "Background", levelRoot);
+      SpriteRenderer::create(background, Path("Sprites", "BinaryBackground.jpg"), viewportDimensions);
+    }
+
     // Create floor
     glm::vec2 floorSize = glm::vec2(viewportDimensions.x, viewportDimensions.y * 0.25f);
     {

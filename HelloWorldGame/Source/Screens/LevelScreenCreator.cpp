@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "Screens/LevelScreen.h"
+#include "Screens/LevelScreenCreator.h"
 #include "Physics/RectangleCollider.h"
 #include "Input/KeyboardRigidBody2DController.h"
 #include "Rendering/SpriteRenderer.h"
@@ -19,13 +19,13 @@ namespace HW
   using namespace HW::Input;
 
   //------------------------------------------------------------------------------------------------
-  LevelScreen::LevelScreen(const Handle<Screen>& screen, const std::string& name) :
+  LevelScreenCreator::LevelScreenCreator(const Handle<Screen>& screen, const std::string& name) :
     Inherited(screen, name)
   {
   }
 
   //------------------------------------------------------------------------------------------------
-  Handle<GameObject> LevelScreen::createPlayer(const glm::vec2& size, const glm::vec3& translation)
+  Handle<GameObject> LevelScreenCreator::createPlayer(const glm::vec2& size, const glm::vec3& translation)
   {
     const Handle<GameObject>& player = createGameObject(kGUI, translation, "Player");
     SpriteRenderer::create(player, Path("Sprites", "UI", "Rectangle.png"), size, glm::vec4(0, 0, 1, 1));
@@ -45,7 +45,7 @@ namespace HW
   }
 
   //------------------------------------------------------------------------------------------------
-  Handle<GameObject> LevelScreen::createTerminalUI()
+  Handle<GameObject> LevelScreenCreator::createTerminalUI()
   {
     const glm::vec2& viewportDimensions = getViewportDimensions();
 
@@ -55,7 +55,7 @@ namespace HW
     // Create black background for whole screen
     {
       const Handle<GameObject>& blackBackground = createGameObject(kGUI, glm::vec2(), "BlackBackground", grouper);
-      SpriteRenderer::create(blackBackground, Path("Sprites", "UI", "Rectangle.png"), glm::vec2(viewportDimensions.x, viewportDimensions.y), glm::vec4(0, 0, 0, 0.4f));
+      SpriteRenderer::create(blackBackground, Path("Sprites", "UI", "Rectangle.png"), glm::vec2(viewportDimensions.x, viewportDimensions.y), glm::vec4(0, 0, 0, 0.6f));
       blackBackground->setActive(false);
       blackBackground->setShouldRender(false);
     }

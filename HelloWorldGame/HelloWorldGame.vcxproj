@@ -135,9 +135,10 @@
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\HelloWorldGame.cpp" />
     <ClCompile Include="Source\Physics\PlayerObstacle.cpp" />
+    <ClCompile Include="Source\Screens\HelloWorldLoadingScreen.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldSplashScreen.cpp" />
     <ClCompile Include="Source\Screens\Levels\Level1.cpp" />
-    <ClCompile Include="Source\Screens\LevelScreen.cpp" />
+    <ClCompile Include="Source\Screens\LevelScreenCreator.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp" />
     <ClCompile Include="Source\UI\MainMenuTitleEffect.cpp" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <None Include="Resources\Vertex Shaders\text.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\Textures\Sprites\BinaryBackground.jpg" />
     <Image Include="Resources\Textures\Sprites\ComputerTerminal.png" />
     <Image Include="Resources\Textures\Sprites\MetalDoor.png" />
     <Image Include="Resources\Textures\Sprites\Scientist.png" />
@@ -180,8 +182,9 @@
     <ClInclude Include="Headers\Input\TerminalActivationHandler.h" />
     <ClInclude Include="Headers\Input\TerminalInputHandler.h" />
     <ClInclude Include="Headers\Physics\PlayerObstacle.h" />
+    <ClInclude Include="Headers\Screens\HelloWorldLoadingScreen.h" />
     <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h" />
-    <ClInclude Include="Headers\Screens\LevelScreen.h" />
+    <ClInclude Include="Headers\Screens\LevelScreenCreator.h" />
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h" />
     <ClInclude Include="Headers\UI\MainMenuTitleEffect.h" />

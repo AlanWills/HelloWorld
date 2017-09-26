@@ -24,14 +24,14 @@ namespace HW
   void HelloWorldMainMenuScreen::create()
   {
     HelloWorldMainMenuScreen mainMenu(Screen::allocate());
-
     const glm::vec2& viewportDimensions = mainMenu.getViewportDimensions();
+
     const Handle<GameObject>& title = mainMenu.createGameObject(kGUI, glm::vec2(viewportDimensions.x * 0.5f, viewportDimensions.y * 0.8f), "Title");
     UI::TextBox::create(title, "", 32, Horizontal::kCentre);
     title->addComponent<MainMenuTitleEffect>();
 
     const Handle<GameObject>& playGameButton = mainMenu.createGameObject(kGUI, glm::vec2(), "PlayButton");
-    UI::Button::create(playGameButton, "Play", 
+    const Handle<Button>& playButton = UI::Button::create(playGameButton, "run()", 
       [](const Handle<GameObject>& caller) -> void
       {
         caller->getOwnerScreen()->die();
@@ -39,9 +39,11 @@ namespace HW
         Level1::create();
       }
     );
+    playButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);
 
     const Handle<GameObject>& exitGameButton = mainMenu.createGameObject(kGUI, glm::vec2(), "ExitButton");
-    UI::Button::create(exitGameButton, "Exit", [](const Handle<GameObject>&) -> void { Game::current()->exit(); });
+    const Handle<Button>& exitButton = UI::Button::create(exitGameButton, "quit()", [](const Handle<GameObject>&) -> void { Game::current()->exit(); });
+    exitButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);
 
     const Handle<GameObject>& buttonStackPanel = mainMenu.createGameObject(kGUI, viewportDimensions * 0.5f, "ButtonStackPanel");
     UI::StackPanel::create(buttonStackPanel, Vertical::kCentre, playGameButton, exitGameButton);

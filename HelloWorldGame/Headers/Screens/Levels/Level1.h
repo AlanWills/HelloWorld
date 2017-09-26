@@ -1,20 +1,24 @@
 #pragma once
 
-#include "Screens/LevelScreen.h"
+#include "Screens/LevelScreenCreator.h"
 
 
 namespace HW
 {
   
-class Level1 : public LevelScreen
+class Level1 : public LevelScreenCreator
 {
   public:
-    Level1(const Handle<Screen>& screen);
+    Level1(const Level1&) = delete;
+    Level1 operator=(const Level1&) = delete;
 
     static void create();
 
+  protected:
+    Level1(const Handle<Screen>& screen);
+
   private:
-    typedef LevelScreen Inherited;
+    typedef LevelScreenCreator Inherited;
 };
 
 }
