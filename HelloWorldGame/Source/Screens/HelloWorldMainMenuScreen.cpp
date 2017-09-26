@@ -29,7 +29,7 @@ namespace HW
 
     const Handle<GameObject>& title = mainMenu.createGameObject(kGUI, glm::vec2(viewportDimensions.x * 0.5f, viewportDimensions.y * 0.8f), "Title");
     UI::TextBox::create(title, "", 32, Horizontal::kCentre);
-    TypingTextEffect::create(title, "Hello World");
+    TypingTextEffect::create(title, "Hello World", 0.3f, 0.2f);
 
     const Handle<GameObject>& playGameButton = mainMenu.createGameObject(kGUI, glm::vec2(), "PlayButton");
     const Handle<Button>& playButton = UI::Button::create(playGameButton, "run()", 

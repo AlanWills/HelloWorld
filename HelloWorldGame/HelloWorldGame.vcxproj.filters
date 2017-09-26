@@ -125,6 +125,9 @@
     <Image Include="Resources\Textures\Sprites\BinaryBackground.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\Textures\Sprites\UI\ProgressBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\HelloWorldGame.h">

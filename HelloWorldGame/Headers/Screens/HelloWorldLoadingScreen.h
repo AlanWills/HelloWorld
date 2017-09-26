@@ -47,13 +47,20 @@ void HelloWorldLoadingScreen::create()
   // Create some UI to keep the user occupied
   {
     const Handle<GameObject>& typingText = loadingScreen.createGameObject(kGUI, viewportDimensions * 0.5f, "TypingText");
-    TextRenderer::create(typingText, "", 24, Horizontal::kCentre, Vertical::kCentre, glm::vec4(0, 1, 0, 1));
+    UI::TextBox::create(typingText, "", 24, Horizontal::kCentre, Vertical::kCentre, glm::vec4(0, 1, 0, 1));
     TypingTextEffect::create(typingText, std::vector<std::string>
     {
       "Booting Runtime",
       "Simulating Physics",
       "Populating World"
-    });
+    },
+    0.03f, 0.0f);
+  }
+
+  // Create the progress bar
+  {
+    const Handle<GameObject>& progressBar = loadingScreen.createGameObject(kGUI, glm::vec2(viewportDimensions.x * 0.5f, viewportDimensions.y * 0.25f), "ProgressBar");
+    const Handle<SpriteRenderer>& renderer = SpriteRenderer::create(progressBar, Path("Sprites", "UI", "ProgressBar.png"), glm::vec4(0, 1, 0, 1));
   }
 }
 

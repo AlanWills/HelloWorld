@@ -13,13 +13,14 @@ namespace HW
 {
   RandomGenerator TypingTextEffect::m_generator = RandomGenerator();
 
-  REGISTER_SCRIPT(TypingTextEffect, 1)
+  REGISTER_SCRIPT(TypingTextEffect, 2)
 
   //------------------------------------------------------------------------------------------------
   TypingTextEffect::TypingTextEffect() :
     m_textBox(),
     m_currentTimer(0),
     m_nextTimer(0),
+    m_averageTypeSpeed(0),
     m_text(),
     m_currentLine(0),
     m_keyPressSoundPaths { Path("KeyPresses", "KeyPress1.wav"), Path("KeyPresses", "KeyPress2.wav"), Path("KeyPresses", "KeyPress3.wav") },
@@ -63,13 +64,13 @@ namespace HW
     {
       size_t index = m_textBox->getTextRenderer()->getLineLength(0);
       m_currentTimer = 0;
-      m_nextTimer = (index == m_text[m_currentLine].size() - 1) ? 2 : m_generator.generate(0.1f, 0.5f);  // Creates pause after final letter
+      m_nextTimer = (index == m_text[m_currentLine].size() - 1) ? 2 : m_generator.generate(m_averageTypeSpeed - m_typeSpeedVariation, m_averageTypeSpeed + m_typeSpeedVariation);  // Creates pause after final letter
 
-      if (index == m_text.size())
+      if (index == m_text[m_currentLine].size())
       {
-        // Reset with new line of text
-        m_currentLine = m_generator.generate(0, m_text.size() - 1);
-        m_textBox->getTextRenderer()->resetLines(m_text[m_currentLine]);
+        // Reset for next line of text
+        m_currentLine = (++m_currentLine) % m_text.size();
+        m_textBox->getTextRenderer()->resetLines();
         m_textBox->setLetterIndex(0);
       }
       else
@@ -93,22 +94,30 @@ namespace HW
     m_textBox.reset();
     m_currentTimer = 0;
     m_nextTimer = 0;
+    m_averageTypeSpeed = 0;
+    m_typeSpeedVariation = 0;
     m_text.clear();
     m_currentLine = 0;
     m_keyPressAudio.clear();
   }
 
   //------------------------------------------------------------------------------------------------
-  Handle<TypingTextEffect> TypingTextEffect::create(const Handle<GameObject>& gameObject, const std::vector<std::string>& text)
+  Handle<TypingTextEffect> TypingTextEffect::create(
+    const Handle<GameObject>& gameObject, 
+    const std::vector<std::string>& text,
+    float averageTypeSpeed,
+    float typeSpeedVariation)
   {
     if (gameObject.is_null())
     {
       ASSERT_FAIL();
-      return;
+      return Handle<TypingTextEffect>();
     }
 
     const Handle<TypingTextEffect>& typingTextEffect = gameObject->addComponent<TypingTextEffect>();
     typingTextEffect->setText(text);
+    typingTextEffect->setAverageTypeSpeed(averageTypeSpeed);
+    typingTextEffect->setTypeSpeedVariation(typeSpeedVariation);
 
     return typingTextEffect;
   }
