@@ -5,8 +5,9 @@
 #include "UI/Button.h"
 #include "UI/StackPanel.h"
 #include "Game/Game.h"
+#include "Screens/HelloWorldLoadingScreen.h"
 #include "Screens/Levels/Level1.h"
-#include "UI/MainMenuTitleEffect.h"
+#include "GraphicalFX/TypingTextEffect.h"
 #include "UI/TextBox.h"
 
 
@@ -28,7 +29,7 @@ namespace HW
 
     const Handle<GameObject>& title = mainMenu.createGameObject(kGUI, glm::vec2(viewportDimensions.x * 0.5f, viewportDimensions.y * 0.8f), "Title");
     UI::TextBox::create(title, "", 32, Horizontal::kCentre);
-    title->addComponent<MainMenuTitleEffect>();
+    TypingTextEffect::create(title, "Hello World");
 
     const Handle<GameObject>& playGameButton = mainMenu.createGameObject(kGUI, glm::vec2(), "PlayButton");
     const Handle<Button>& playButton = UI::Button::create(playGameButton, "run()", 
@@ -36,7 +37,7 @@ namespace HW
       {
         caller->getOwnerScreen()->die();
         getScreenManager()->findScreen("Persistent")->die();
-        Level1::create();
+        HelloWorldLoadingScreen::create<Level1>();
       }
     );
     playButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);

@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Compiler\Compiler.cpp" />
+    <ClCompile Include="Source\GraphicalFX\TypingTextEffect.cpp" />
     <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
     <ClCompile Include="Source\Input\TerminalActivationHandler.cpp" />
     <ClCompile Include="Source\Input\TerminalInputHandler.cpp" />
@@ -140,7 +141,6 @@
     <ClCompile Include="Source\Screens\Levels\Level1.cpp" />
     <ClCompile Include="Source\Screens\LevelScreenCreator.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp" />
-    <ClCompile Include="Source\UI\MainMenuTitleEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav" />
@@ -187,7 +187,7 @@
     <ClInclude Include="Headers\Screens\LevelScreenCreator.h" />
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h" />
-    <ClInclude Include="Headers\UI\MainMenuTitleEffect.h" />
+    <ClInclude Include="Headers\GraphicalFX\TypingTextEffect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

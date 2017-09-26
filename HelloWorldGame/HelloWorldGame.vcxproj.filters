@@ -30,9 +30,6 @@
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\UI\MainMenuTitleEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Input\TerminalActivationHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -52,6 +49,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Screens\LevelScreenCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GraphicalFX\TypingTextEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -139,9 +139,6 @@
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\UI\MainMenuTitleEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Headers\Input\TerminalActivationHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -161,6 +158,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\LevelScreenCreator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GraphicalFX\TypingTextEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

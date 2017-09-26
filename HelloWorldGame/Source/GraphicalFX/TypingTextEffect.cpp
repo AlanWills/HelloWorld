@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "UI/MainMenuTitleEffect.h"
+#include "GraphicalFX/TypingTextEffect.h"
 #include "Objects/GameObject.h"
 #include "Resources/ResourceManager.h"
 
@@ -11,16 +11,17 @@ using namespace CelesteEngine::Audio;
 
 namespace HW
 {
-  std::string MainMenuTitleEffect::m_text = "Hello World";
-  RandomGenerator MainMenuTitleEffect::m_generator = RandomGenerator();
+  RandomGenerator TypingTextEffect::m_generator = RandomGenerator();
 
-  REGISTER_SCRIPT(MainMenuTitleEffect, 1)
+  REGISTER_SCRIPT(TypingTextEffect, 1)
 
   //------------------------------------------------------------------------------------------------
-  MainMenuTitleEffect::MainMenuTitleEffect() :
+  TypingTextEffect::TypingTextEffect() :
     m_textBox(),
     m_currentTimer(0),
     m_nextTimer(0),
+    m_text(),
+    m_currentLine(0),
     m_keyPressSoundPaths { Path("KeyPresses", "KeyPress1.wav"), Path("KeyPresses", "KeyPress2.wav"), Path("KeyPresses", "KeyPress3.wav") },
     m_keyPressAudio()
   {
@@ -28,12 +29,12 @@ namespace HW
   }
 
   //------------------------------------------------------------------------------------------------
-  MainMenuTitleEffect::~MainMenuTitleEffect()
+  TypingTextEffect::~TypingTextEffect()
   {
   }
 
   //------------------------------------------------------------------------------------------------
-  void MainMenuTitleEffect::onSetGameObject(const Handle<GameObject>& gameObject)
+  void TypingTextEffect::onSetGameObject(const Handle<GameObject>& gameObject)
   {
     Inherited::onSetGameObject(gameObject);
 
@@ -47,11 +48,11 @@ namespace HW
   }
 
   //------------------------------------------------------------------------------------------------
-  void MainMenuTitleEffect::onUpdate(GLfloat elapsedGameTime)
+  void TypingTextEffect::onUpdate(GLfloat elapsedGameTime)
   {
     Inherited::onUpdate(elapsedGameTime);
 
-    if (m_textBox.is_null())
+    if (m_textBox.is_null() || m_text.empty())
     {
       ASSERT_FAIL();
       return;
@@ -60,26 +61,22 @@ namespace HW
     m_currentTimer += elapsedGameTime;
     if (m_currentTimer >= m_nextTimer)
     {
-      m_currentTimer = 0;
-      m_nextTimer = m_generator.generate(0.1f, 0.5f);
-
       size_t index = m_textBox->getTextRenderer()->getLineLength(0);
+      m_currentTimer = 0;
+      m_nextTimer = (index == m_text[m_currentLine].size() - 1) ? 2 : m_generator.generate(0.1f, 0.5f);  // Creates pause after final letter
+
       if (index == m_text.size())
       {
-        m_textBox->getTextRenderer()->resetLines();
+        // Reset with new line of text
+        m_currentLine = m_generator.generate(0, m_text.size() - 1);
+        m_textBox->getTextRenderer()->resetLines(m_text[m_currentLine]);
         m_textBox->setLetterIndex(0);
       }
       else
       {
-        m_textBox->getTextRenderer()->addLetter(0, index, m_text[index]);
+        m_textBox->getTextRenderer()->addLetter(0, index, m_text[m_currentLine][index]);
         m_textBox->setLetterIndex(index + 1);
         
-        if (index == m_text.size() - 1)
-        {
-          // Extend time for whole title
-          m_nextTimer = 2;
-        }
-
         if (!m_keyPressAudio.empty())
         {
           m_keyPressAudio[m_generator.generate(0, m_keyPressAudio.size() - 1)]->play();
@@ -89,11 +86,30 @@ namespace HW
   }
 
   //------------------------------------------------------------------------------------------------
-  void MainMenuTitleEffect::onDeath()
+  void TypingTextEffect::onDeath()
   {
     Inherited::onDeath();
 
     m_textBox.reset();
+    m_currentTimer = 0;
+    m_nextTimer = 0;
+    m_text.clear();
+    m_currentLine = 0;
     m_keyPressAudio.clear();
+  }
+
+  //------------------------------------------------------------------------------------------------
+  Handle<TypingTextEffect> TypingTextEffect::create(const Handle<GameObject>& gameObject, const std::vector<std::string>& text)
+  {
+    if (gameObject.is_null())
+    {
+      ASSERT_FAIL();
+      return;
+    }
+
+    const Handle<TypingTextEffect>& typingTextEffect = gameObject->addComponent<TypingTextEffect>();
+    typingTextEffect->setText(text);
+
+    return typingTextEffect;
   }
 }
