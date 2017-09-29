@@ -51,24 +51,20 @@ namespace HW
       {
         m_levelRoot->setActive(false);
 
-        const Handle<Transform>& transform = gameObject->getTransform();
-        for (size_t i = 0, n = transform->getChildCount(); i < n; ++i)
+        for (const Handle<GameObject>& child : *gameObject)
         {
-          const Handle<GameObject>& child = transform->getChildGameObject(i);
-          child->setActive(true);
-          child->setShouldRender(true);
+          child->setActive(false);
+          child->setShouldRender(false);
         }
       }
       else if (!m_levelRoot->isActive() && isKeyDown(m_deactivationKey))
       {
         m_levelRoot->setActive(true);
 
-        const Handle<Transform>& transform = gameObject->getTransform();
-        for (size_t i = 0, n = transform->getChildCount(); i < n; ++i)
+        for (const Handle<GameObject>& child : *gameObject)
         {
-          const Handle<GameObject>& child = transform->getChildGameObject(i);
-          child->setActive(false);
-          child->setShouldRender(false);
+          child->setActive(true);
+          child->setShouldRender(true);
         }
       }
     }

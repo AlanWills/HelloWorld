@@ -61,9 +61,10 @@ namespace HW
     }
 
     // Create background
+    const glm::vec2& terminalSize = viewportDimensions * 0.6f;
     {
-      const Handle<GameObject>& background = createGameObject(kGUI, glm::vec3(0 , 0, 0.1f), "TerminalBackground", grouper);
-      SpriteRenderer::create(background, Path("Sprites", "TerminalBackground.png"), viewportDimensions * 0.6f);
+      const Handle<GameObject>& background = createGameObject(kGUI, glm::vec3(0, 0, 0.1f), "TerminalBackground", grouper);
+      SpriteRenderer::create(background, Path("Sprites", "TerminalBackground.png"), terminalSize);
       background->setActive(false);
       background->setShouldRender(false);
     }
