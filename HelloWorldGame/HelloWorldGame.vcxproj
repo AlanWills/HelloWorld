@@ -131,7 +131,6 @@
     <ClCompile Include="Source\Compiler\Compiler.cpp" />
     <ClCompile Include="Source\GraphicalFX\TypingTextEffect.cpp" />
     <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
-    <ClCompile Include="Source\Input\TerminalActivationHandler.cpp" />
     <ClCompile Include="Source\Input\TerminalInputHandler.cpp" />
     <ClCompile Include="Source\Loading\LevelLoader.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -181,7 +180,6 @@
     <ClInclude Include="Headers\Compiler\Compiler.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
-    <ClInclude Include="Headers\Input\TerminalActivationHandler.h" />
     <ClInclude Include="Headers\Input\TerminalInputHandler.h" />
     <ClInclude Include="Headers\Loading\LevelLoader.h" />
     <ClInclude Include="Headers\Physics\PlayerObstacle.h" />

@@ -5,6 +5,10 @@
 #include "Physics/PlayerObstacle.h"
 #include "Rendering/SpriteRenderer.h"
 #include "Events/EventTriggerer.h"
+#include "Input/KeyboardActivator.h"
+#include "Input/KeyboardVisibilityScript.h"
+
+using namespace CelesteEngine::Input;
 
 
 namespace HW
@@ -25,18 +29,19 @@ namespace HW
     Level1 level1(gameplayScreen);
     const glm::vec2& viewportDimensions = level1.getViewportDimensions();
 
-    const Handle<GameObject>& levelRoot = level1.createGameObject(kGUI, glm::vec2(), "LevelRoot");
+    const Handle<GameObject>& levelActivationGrouper = level1.createGameObject(kGUI, glm::vec2(), "LevelActivationGrouper");
+    KeyboardActivator::create(levelActivationGrouper, GLFW_KEY_DOWN, GLFW_KEY_UP, kToggle);
 
     // Create background
     {
-      const Handle<GameObject>& background = level1.createGameObject(kGUI, glm::vec3(viewportDimensions * 0.5f, -0.1f), "Background", levelRoot);
+      const Handle<GameObject>& background = level1.createGameObject(kGUI, glm::vec3(viewportDimensions * 0.5f, -0.1f), "Background", levelActivationGrouper);
       SpriteRenderer::create(background, Path("Sprites", "BinaryBackground.jpg"), viewportDimensions);
     }
 
     // Create floor
     glm::vec2 floorSize = glm::vec2(viewportDimensions.x, viewportDimensions.y * 0.25f);
     {
-      const Handle<GameObject>& floorObject = level1.createGameObject(kGUI, glm::vec3(floorSize * 0.5f, 0), "Floor", levelRoot);
+      const Handle<GameObject>& floorObject = level1.createGameObject(kGUI, glm::vec3(floorSize * 0.5f, 0), "Floor", levelActivationGrouper);
       SpriteRenderer::create(floorObject, Path("Sprites", "UI", "Rectangle.png"), floorSize);
     }
 
@@ -45,11 +50,11 @@ namespace HW
     {
       const Handle<GameObject>& player = level1.createPlayer(
         playerSize, glm::vec3(viewportDimensions.x * 0.25f, floorSize.y + playerSize.y * 0.5f, 0));
-      player->setTransformParent(levelRoot);
+      player->setTransformParent(levelActivationGrouper);
     }
 
     {
-      const Handle<GameObject>& leftHandObstacle = level1.createGameObject(kGUI, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelRoot);
+      const Handle<GameObject>& leftHandObstacle = level1.createGameObject(kGUI, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelActivationGrouper);
       const Handle<PlayerObstacle>& obstacle = leftHandObstacle->addComponent<PlayerObstacle>();
       obstacle->setDimensions(glm::vec2(4, viewportDimensions.y));
     }
@@ -57,14 +62,14 @@ namespace HW
     // Create door
     glm::vec2 doorSize = glm::vec2(viewportDimensions.x * 0.1f, viewportDimensions.y - floorSize.y);
     {
-      const Handle<GameObject>& doorObject = level1.createGameObject(kGUI, glm::vec3(viewportDimensions - doorSize * 0.5f, 0), "Door", levelRoot);
+      const Handle<GameObject>& doorObject = level1.createGameObject(kGUI, glm::vec3(viewportDimensions - doorSize * 0.5f, 0), "Door", levelActivationGrouper);
       SpriteRenderer::create(doorObject, Path("Sprites", "MetalDoor.png"), doorSize);
       doorObject->addComponent<PlayerObstacle>();
     }
 
     // Create exit
     {
-      const Handle<GameObject>& exitObject = level1.createGameObject(kGUI, glm::vec2(viewportDimensions.x + playerSize.x * 0.5f, floorSize.y + playerSize.y * 0.5f), "Exit", levelRoot);
+      const Handle<GameObject>& exitObject = level1.createGameObject(kGUI, glm::vec2(viewportDimensions.x + playerSize.x * 0.5f, floorSize.y + playerSize.y * 0.5f), "Exit", levelActivationGrouper);
       const Handle<EventTriggerer>& eventTriggerer = exitObject->addComponent<EventTriggerer>();
       eventTriggerer->setCondition([](const Handle<GameObject>& gameObject) -> bool
       {
