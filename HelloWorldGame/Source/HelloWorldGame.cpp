@@ -16,7 +16,7 @@ namespace HW
     persistent->setName("Persistent");
 
     const Handle<GameObject>& audio = persistent->allocateGameObject(kGUI);
-    const Handle<AudioSource>& audioSource = AudioSource::create(audio, Path("StartupMusic.wav"));
+    const Handle<AudioSource>& audioSource = AudioSource::create(audio, Path("StartupMusic.wav"), true);
     audioSource->play();
 
     HelloWorldSplashScreen::create();
