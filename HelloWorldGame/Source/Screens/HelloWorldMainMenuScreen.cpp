@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ #include "stdafx.h"
 
 #include "Screens/HelloWorldMainMenuScreen.h"
 #include "Screens/ScreenManager.h"
@@ -42,11 +42,20 @@ namespace HW
     );
     playButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);
 
+    const Handle<GameObject>& optionsMenuButton = mainMenu.createGameObject(kGUI, glm::vec2(), "OptionsButton");
+    const Handle<Button>& optionsButton = UI::Button::create(optionsMenuButton, "options()",
+      [](const Handle<GameObject>& caller) -> void
+      {
+        caller->getOwnerScreen()->die();
+      }
+    );
+    optionsButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);
+
     const Handle<GameObject>& exitGameButton = mainMenu.createGameObject(kGUI, glm::vec2(), "ExitButton");
     const Handle<Button>& exitButton = UI::Button::create(exitGameButton, "quit()", [](const Handle<GameObject>&) -> void { Game::current()->exit(); });
     exitButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);
 
     const Handle<GameObject>& buttonStackPanel = mainMenu.createGameObject(kGUI, viewportDimensions * 0.5f, "ButtonStackPanel");
-    UI::StackPanel::create(buttonStackPanel, Vertical::kCentre, playGameButton, exitGameButton);
+    const Handle<StackPanel>& stackPanel = UI::StackPanel::create(buttonStackPanel, Vertical::kCentre, 20, playGameButton, optionsMenuButton, exitGameButton);
   }
 }
