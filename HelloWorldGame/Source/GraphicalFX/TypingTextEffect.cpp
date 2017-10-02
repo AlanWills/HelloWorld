@@ -44,7 +44,7 @@ namespace HW
 
     for (const Path& path : m_keyPressSoundPaths)
     {
-      m_keyPressAudio.push_back(AudioSource::create(gameObject, path));
+      m_keyPressAudio.push_back(AudioSource::create(gameObject, path, kSFX));
     }
   }
 
