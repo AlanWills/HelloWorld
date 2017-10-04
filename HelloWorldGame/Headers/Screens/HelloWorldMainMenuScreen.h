@@ -8,14 +8,10 @@ namespace HW
   
 class HelloWorldMainMenuScreen : public CelesteEngine::ScreenCreator
 {
+  DECLARE_SCREEN_CREATOR(HelloWorldMainMenuScreen)
+
   public:
-    HelloWorldMainMenuScreen(const HelloWorldMainMenuScreen&) = delete;
-    HelloWorldMainMenuScreen& operator=(const HelloWorldMainMenuScreen&) = delete;
-
     static void create();
-
-  protected:
-    HelloWorldMainMenuScreen(const Handle<Screen>& screen);
 
   private:
     typedef ScreenCreator Inherited;

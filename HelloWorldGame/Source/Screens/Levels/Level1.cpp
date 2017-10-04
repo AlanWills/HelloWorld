@@ -15,9 +15,11 @@ namespace HW
 {
   using namespace Physics;
 
+  REGISTER_SCREEN_CREATOR(Level1, "Level1")
+
   //------------------------------------------------------------------------------------------------
-  Level1::Level1(const Handle<Screen>& screen) :
-    Inherited(screen)
+  Level1::Level1(const Handle<Screen>& screen, const std::string& name) :
+    Inherited(screen, name)
   {
   }
 

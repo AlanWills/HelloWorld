@@ -8,13 +8,9 @@ namespace HW
 
 class LevelScreenCreator : public CelesteEngine::ScreenCreator
 {
-  public:
-    LevelScreenCreator(const LevelScreenCreator&) = delete;
-    LevelScreenCreator& operator=(const LevelScreenCreator&) = delete;
+  DECLARE_BASE_SCREEN_CREATOR(LevelScreenCreator)
 
   protected:
-    LevelScreenCreator(const Handle<Screen>& screen, const std::string& name = "LevelScreen");
-    
     Handle<GameObject> createPlayer(const glm::vec2& size, const glm::vec3& translation);
     Handle<GameObject> createTerminalUI();
 

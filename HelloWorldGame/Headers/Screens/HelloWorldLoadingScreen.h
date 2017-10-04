@@ -12,15 +12,11 @@ namespace HW
 
 class HelloWorldLoadingScreen : public CelesteEngine::ScreenCreator
 {
-  public:
-    HelloWorldLoadingScreen(const HelloWorldLoadingScreen&) = delete;
-    HelloWorldLoadingScreen& operator=(const HelloWorldLoadingScreen&) = delete;
+  DECLARE_SCREEN_CREATOR(HelloWorldLoadingScreen)
 
+  public:
     template <class T>
     static void create();
-
-  protected:
-    HelloWorldLoadingScreen(const Handle<Screen>& screen);
 
   private:
     typedef CelesteEngine::ScreenCreator Inherited;

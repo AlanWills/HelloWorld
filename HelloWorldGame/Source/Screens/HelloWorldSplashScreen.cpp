@@ -8,9 +8,11 @@
 
 namespace HW
 {
+  REGISTER_SCREEN_CREATOR(HelloWorldSplashScreen, "SplashScreen")
+
   //------------------------------------------------------------------------------------------------
-  HelloWorldSplashScreen::HelloWorldSplashScreen(const Handle<Screen>& screen) :
-    Inherited(screen)
+  HelloWorldSplashScreen::HelloWorldSplashScreen(const Handle<Screen>& screen, const std::string& name) :
+    Inherited(screen, name)
   {
   }
 

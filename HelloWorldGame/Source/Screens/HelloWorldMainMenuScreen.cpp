@@ -15,8 +15,10 @@ using namespace CelesteEngine;
 
 namespace HW
 {
+  REGISTER_SCREEN_CREATOR(HelloWorldMainMenuScreen, "MainMenu")
+
   //------------------------------------------------------------------------------------------------
-  HelloWorldMainMenuScreen::HelloWorldMainMenuScreen(const Handle<Screen>& screen) :
+  HelloWorldMainMenuScreen::HelloWorldMainMenuScreen(const Handle<Screen>& screen, const std::string& name) :
     Inherited(screen, "MainMenu")
   {
   }
