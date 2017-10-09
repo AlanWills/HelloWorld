@@ -54,6 +54,9 @@
     <ClCompile Include="Source\Loading\LevelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Screens\HelloWorldOptionsScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav">
@@ -166,5 +169,11 @@
     <ClInclude Include="Headers\Loading\LevelLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\Screens\HelloWorldOptionsScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Resources\Data\Settings\Settings.xml" />
   </ItemGroup>
 </Project>

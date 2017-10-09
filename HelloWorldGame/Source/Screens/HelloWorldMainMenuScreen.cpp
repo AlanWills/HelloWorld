@@ -1,11 +1,12 @@
  #include "stdafx.h"
 
 #include "Screens/HelloWorldMainMenuScreen.h"
+#include "Screens/HelloWorldLoadingScreen.h"
+#include "Screens/HelloWorldOptionsScreen.h"
 #include "Screens/ScreenManager.h"
 #include "UI/Button.h"
 #include "UI/StackPanel.h"
 #include "Game/Game.h"
-#include "Screens/HelloWorldLoadingScreen.h"
 #include "Screens/Levels/Level1.h"
 #include "GraphicalFX/TypingTextEffect.h"
 #include "UI/TextBox.h"
@@ -19,7 +20,7 @@ namespace HW
 
   //------------------------------------------------------------------------------------------------
   HelloWorldMainMenuScreen::HelloWorldMainMenuScreen(const Handle<Screen>& screen, const std::string& name) :
-    Inherited(screen, "MainMenu")
+    Inherited(screen, name)
   {
   }
 
@@ -49,6 +50,7 @@ namespace HW
       [](const Handle<GameObject>& caller) -> void
       {
         caller->getOwnerScreen()->die();
+        HelloWorldOptionsScreen::create();
       }
     );
     optionsButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);
