@@ -13,7 +13,7 @@ namespace HW
   {
     Inherited::onInitialize();
 
-    Settings settings;
+    Settings::Settings settings;
     settings.load(Path("Settings", "Settings.xml"));
     getAudioManager()->setMasterVolume(settings.getSetting("MasterVolume", 1.0f));
     getAudioManager()->setMusicVolume(settings.getSetting("MusicVolume", 1.0f));

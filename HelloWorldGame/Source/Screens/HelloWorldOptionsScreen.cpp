@@ -9,6 +9,7 @@
 #include "UI/Button.h"
 #include "Settings/Settings.h"
 #include "Audio/AudioManager.h"
+#include "Resources/ResourceManager.h"
 
 using namespace CelesteEngine::UI;
 using namespace CelesteEngine::Audio;
@@ -55,7 +56,7 @@ namespace HW
       settings.setSetting("MasterVolume", getAudioManager()->getMasterVolume());
       settings.setSetting("MusicVolume", getAudioManager()->getMusicVolume());
       settings.setSetting("SFXVolume", getAudioManager()->getSFXVolume());
-      settings.save(Path("Settings", "Settings.xml"));
+      settings.save(Path(getResourceManager()->getDataDirectoryPath(), "Settings", "Settings.xml"));
 
       gameObject->getOwnerScreen()->die();
       HelloWorldMainMenuScreen::create();

@@ -195,6 +195,11 @@
   <ItemGroup>
     <Xml Include="Resources\Data\Settings\Settings.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CelesteEnginePlus\CelesteEnginePlus\CelesteEnginePlus.vcxproj">
+      <Project>{e9980a8d-828e-44f0-978e-a57abc348f47}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
