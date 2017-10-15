@@ -135,6 +135,7 @@
     <ClCompile Include="Source\Loading\LevelLoader.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\HelloWorldGame.cpp" />
+    <ClCompile Include="Source\Physics\PlayerMoveable.cpp" />
     <ClCompile Include="Source\Physics\PlayerObstacle.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldLoadingScreen.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldOptionsScreen.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="Source\Screens\Levels\Level1.cpp" />
     <ClCompile Include="Source\Screens\LevelScreenCreator.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp" />
+    <ClCompile Include="Source\Screens\Levels\Level2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav" />
@@ -183,6 +185,7 @@
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
     <ClInclude Include="Headers\Input\TerminalInputHandler.h" />
     <ClInclude Include="Headers\Loading\LevelLoader.h" />
+    <ClInclude Include="Headers\Physics\PlayerMoveable.h" />
     <ClInclude Include="Headers\Physics\PlayerObstacle.h" />
     <ClInclude Include="Headers\Screens\HelloWorldLoadingScreen.h" />
     <ClInclude Include="Headers\Screens\HelloWorldOptionsScreen.h" />
@@ -191,6 +194,7 @@
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h" />
     <ClInclude Include="Headers\GraphicalFX\TypingTextEffect.h" />
+    <ClInclude Include="Headers\Screens\Levels\Level2.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resources\Data\Settings\Settings.xml" />

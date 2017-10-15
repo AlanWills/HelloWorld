@@ -37,13 +37,13 @@ namespace HW
 
     // Create master volume slider
     const Handle<GameObject>& masterVolume = options.createMasterVolumeSlider(
-      glm::vec2(), Path("Sprites", "UI", "Rectangle.png"), "MasterVolumeSlider", "Master Volume");
+      glm::vec2(), Path("Sprites", "UI", "Rectangle.png"), "MasterVolumeSlider", glm::vec2(400, 30), "Master Volume");
 
     const Handle<GameObject>& musicVolume = options.createMusicVolumeSlider(
-      glm::vec2(), Path("Sprites", "UI", "Rectangle.png"), "MusicVolumeSlider", "Music Volume");
+      glm::vec2(), Path("Sprites", "UI", "Rectangle.png"), "MusicVolumeSlider", glm::vec2(400, 30), "Music Volume");
 
     const Handle<GameObject>& sfxVolume = options.createSFXVolumeSlider(
-      glm::vec2(), Path("Sprites", "UI", "Rectangle.png"), "SFXVolumeSlider", "SFX Volume");
+      glm::vec2(), Path("Sprites", "UI", "Rectangle.png"), "SFXVolumeSlider", glm::vec2(400, 30), "SFX Volume");
 
     const Handle<GameObject>& stackPanel = options.createGameObject(kGUI, viewportDimensions * 0.5f, "VolumeStackPanel");
     UI::StackPanel::create(stackPanel, Vertical::kCentre, 50, masterVolume, musicVolume, sfxVolume);
@@ -52,7 +52,7 @@ namespace HW
     Button::create(closeButton, "Close", [](const Handle<GameObject>& gameObject) -> void
     {
       // Save changes
-      Settings::Settings settings;
+      Settings settings;
       settings.setSetting("MasterVolume", getAudioManager()->getMasterVolume());
       settings.setSetting("MusicVolume", getAudioManager()->getMusicVolume());
       settings.setSetting("SFXVolume", getAudioManager()->getSFXVolume());

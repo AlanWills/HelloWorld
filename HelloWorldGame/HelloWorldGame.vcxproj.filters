@@ -57,6 +57,12 @@
     <ClCompile Include="Source\Screens\HelloWorldOptionsScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Screens\Levels\Level2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics\PlayerMoveable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav">
@@ -170,6 +176,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\HelloWorldOptionsScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Screens\Levels\Level2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Physics\PlayerMoveable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

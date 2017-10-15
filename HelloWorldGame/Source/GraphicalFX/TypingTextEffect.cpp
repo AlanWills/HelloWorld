@@ -41,6 +41,7 @@ namespace HW
 
     m_nextTimer = m_generator.generate(0.1f, 0.5f);
     m_textBox = gameObject->findComponent<TextBox>();
+    m_textBox->setActive(false);
 
     for (const Path& path : m_keyPressSoundPaths)
     {

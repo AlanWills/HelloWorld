@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include "Screens/Levels/Level1.h"
-#include "Screens/HelloWorldMainMenuScreen.h"
+#include "Screens/Levels/Level2.h"
 #include "Physics/PlayerObstacle.h"
 #include "Rendering/SpriteRenderer.h"
 #include "Events/EventTriggerer.h"
@@ -15,7 +15,7 @@ namespace HW
 {
   using namespace Physics;
 
-  REGISTER_SCREEN_CREATOR(Level1, "Level1")
+  REGISTER_SCREEN_CREATOR(Level1, "LevelScreen")
 
   //------------------------------------------------------------------------------------------------
   Level1::Level1(const Handle<Screen>& screen, const std::string& name) :
@@ -26,9 +26,7 @@ namespace HW
   //------------------------------------------------------------------------------------------------
   void Level1::create()
   {
-    const Handle<Screen>& gameplayScreen = Screen::allocate();
-
-    Level1 level1(gameplayScreen);
+    Level1 level1(Screen::allocate());
     const glm::vec2& viewportDimensions = level1.getViewportDimensions();
 
     const Handle<GameObject>& levelActivationGrouper = level1.createGameObject(kGUI, glm::vec2(), "LevelActivationGrouper");
@@ -72,16 +70,16 @@ namespace HW
     // Create exit
     {
       const Handle<GameObject>& exitObject = level1.createGameObject(kGUI, glm::vec2(viewportDimensions.x + playerSize.x * 0.5f, floorSize.y + playerSize.y * 0.5f), "Exit", levelActivationGrouper);
-      const Handle<EventTriggerer>& eventTriggerer = exitObject->addComponent<EventTriggerer>();
-      eventTriggerer->setCondition([](const Handle<GameObject>& gameObject) -> bool
-      {
-        return gameObject->getOwnerScreen()->findGameObjectWithName("Player")->getTransform()->getTranslation().x >= gameObject->getTransform()->getTranslation().x;
-      });
-      eventTriggerer->getEvent().subscribe([](const Handle<GameObject>& gameObject) -> void
-      {
-        gameObject->getOwnerScreen()->die();
-        HelloWorldMainMenuScreen::create();
-      });
+      const Handle<EventTriggerer>& eventTriggerer = EventTriggerer::create(exitObject, EventTriggerer::kOnce,
+        [](const Handle<GameObject>& gameObject) -> bool
+        {
+          return gameObject->getOwnerScreen()->findGameObjectWithName("Player")->getTransform()->getTranslation().x >= gameObject->getTransform()->getTranslation().x;
+        },
+        [](const Handle<GameObject>& gameObject) -> void
+        {
+          gameObject->getOwnerScreen()->die();
+          Level2::create();
+        });
     }
 
     // Create terminal

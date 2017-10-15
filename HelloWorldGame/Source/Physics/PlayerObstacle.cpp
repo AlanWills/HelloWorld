@@ -13,8 +13,8 @@ namespace HW
   {
     REGISTER_SCRIPT(PlayerObstacle, 10)
 
-      //------------------------------------------------------------------------------------------------
-      PlayerObstacle::PlayerObstacle() :
+    //------------------------------------------------------------------------------------------------
+    PlayerObstacle::PlayerObstacle() :
       m_player(),
       m_dimensions()
     {

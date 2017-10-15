@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings>
-    <MasterVolume>0</MasterVolume>
-    <MusicVolume>1</MusicVolume>
-    <SFXVolume>1</SFXVolume>
-    <MasterVolume>0.345000</MasterVolume>
-    <MusicVolume>0.755000</MusicVolume>
-    <SFXVolume>0.522500</SFXVolume>
-    <MasterVolume>0.345000</MasterVolume>
+    <MasterVolume>0.000000</MasterVolume>
     <MusicVolume>0.755000</MusicVolume>
     <SFXVolume>0.522500</SFXVolume>
 </Settings>

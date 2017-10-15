@@ -3,6 +3,7 @@
 #include "Compiler/Compiler.h"
 #include "Objects/GameObject.h"
 #include "Screens/ScreenManager.h"
+#include "Screens/Levels/Level1.h"
 
 
 using namespace CelesteEngine;

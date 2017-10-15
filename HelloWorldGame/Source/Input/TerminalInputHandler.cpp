@@ -17,7 +17,7 @@ namespace HW
 {
   namespace Input
   {
-    REGISTER_SCRIPT(TerminalInputHandler, 1)
+    REGISTER_SCRIPT(TerminalInputHandler, 2)
 
     //------------------------------------------------------------------------------------------------
     TerminalInputHandler::TerminalInputHandler() :
