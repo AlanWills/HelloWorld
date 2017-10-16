@@ -5,7 +5,6 @@
 #include "Input/KeyboardRigidBody2DController.h"
 #include "Rendering/SpriteRenderer.h"
 #include "Rendering/TextRenderer.h"
-#include "UI/TextBox.h"
 #include "Input/KeyboardActivator.h"
 #include "Input/KeyboardVisibilityScript.h"
 #include "Input/TerminalInputHandler.h"
@@ -72,7 +71,7 @@ namespace HW
     {
       glm::vec2 margin(20, 15);
       const Handle<GameObject>& terminalTextBox = createGameObject(kGUI, glm::vec3(-viewportDimensions.x * 0.3f + margin.x, viewportDimensions.y * 0.3f - margin.y, 0.15f), "TerminalTextBox", activationGrouper);
-      TextBox::create(terminalTextBox, "> ", 24, Horizontal::kLeft, Vertical::kTop, glm::vec4(0, 1, 0, 1));
+      TextRenderer::create(terminalTextBox, "> ", 24, Horizontal::kLeft, Vertical::kTop, glm::vec4(0, 1, 0, 1));
       terminalTextBox->addComponent<TerminalInputHandler>();
     }
 
