@@ -96,7 +96,7 @@ namespace HW
 
     // Create UI
     {
-      const glm::vec2& dialogSize = viewportDimensions * 0.5f;
+      const glm::vec2& dialogSize = viewportDimensions * 0.6f;
       const Handle<GameObject>& dialogGrouper = level1.createGameObject(kGUI, glm::vec3(viewportDimensions * 0.5f, 0.2f), "DialogGrouper");
       SpriteRenderer::create(dialogGrouper, Path("Sprites", "UI", "Rectangle.png"), dialogSize, glm::vec4(0, 0, 0, 1));
 
@@ -107,10 +107,13 @@ namespace HW
       TextRenderer::create(text, "", 16, Horizontal::kCentre, Vertical::kCentre);
 
       const Handle<GameObject>& closeButton = level1.createGameObject(kGUI, glm::vec3(dialogSize.x * 0.5f, -dialogSize.y * 0.5f, 0.01f), "DialogText", dialogGrouper);
-      Button::create(text, "Close", [](const Handle<GameObject>& gameObject) -> void
+      Button::create(closeButton, "Close", [](const Handle<GameObject>& gameObject) -> void
       {
-        //gameObject->getTransformParent
+        gameObject->getParent()->setActive(false);
+        gameObject->getParent()->setShouldRender(false);
       });
+      const glm::vec2& dimensions = closeButton->findComponent<SpriteRenderer>()->getDimensions();
+      closeButton->getTransform()->translate(-dimensions.x * 0.75f, dimensions.y * 0.75f);
     }
   }
 }
