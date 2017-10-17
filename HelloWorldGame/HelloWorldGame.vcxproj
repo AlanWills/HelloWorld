@@ -136,7 +136,6 @@
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\HelloWorldGame.cpp" />
     <ClCompile Include="Source\Physics\PlayerMoveable.cpp" />
-    <ClCompile Include="Source\Physics\PlayerObstacle.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldLoadingScreen.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldOptionsScreen.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldSplashScreen.cpp" />
@@ -186,7 +185,6 @@
     <ClInclude Include="Headers\Input\TerminalInputHandler.h" />
     <ClInclude Include="Headers\Loading\LevelLoader.h" />
     <ClInclude Include="Headers\Physics\PlayerMoveable.h" />
-    <ClInclude Include="Headers\Physics\PlayerObstacle.h" />
     <ClInclude Include="Headers\Screens\HelloWorldLoadingScreen.h" />
     <ClInclude Include="Headers\Screens\HelloWorldOptionsScreen.h" />
     <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h" />

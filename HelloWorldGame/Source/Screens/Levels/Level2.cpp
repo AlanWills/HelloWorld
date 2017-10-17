@@ -6,7 +6,6 @@
 #include "Input/KeyboardActivator.h"
 #include "Rendering/SpriteRenderer.h"
 #include "Physics/RectangleCollider.h"
-#include "Physics/PlayerObstacle.h"
 #include "Physics/PlayerMoveable.h"
 #include "Screens/HelloWorldMainMenuScreen.h"
 
@@ -58,8 +57,7 @@ namespace HW
 
     {
       const Handle<GameObject>& leftHandObstacle = level.createGameObject(kGUI, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelActivationGrouper);
-      const Handle<PlayerObstacle>& obstacle = leftHandObstacle->addComponent<PlayerObstacle>();
-      obstacle->setDimensions(glm::vec2(4, viewportDimensions.y));
+      RectangleCollider::create(leftHandObstacle, glm::vec2(4, viewportDimensions.y));
     }
 
     // Create draggable
@@ -69,6 +67,14 @@ namespace HW
       SpriteRenderer::create(draggableObject, Path("Sprites", "UI", "Rectangle.png"), draggableSize);
       RectangleCollider::create(draggableObject, draggableSize);
       draggableObject->addComponent<PlayerMoveable>();
+    }
+
+    // Create door
+    glm::vec2 doorSize = glm::vec2(viewportDimensions.x * 0.1f, viewportDimensions.y - floorSize.y);
+    {
+      const Handle<GameObject>& doorObject = level.createGameObject(kGUI, glm::vec3(viewportDimensions - doorSize * 0.5f, 0), "Door", levelActivationGrouper);
+      SpriteRenderer::create(doorObject, Path("Sprites", "MetalDoor.png"), doorSize);
+      RectangleCollider::create(doorObject, doorSize);
     }
 
     // Create exit

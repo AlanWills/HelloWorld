@@ -39,9 +39,6 @@
     <ClCompile Include="Source\Compiler\Compiler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Physics\PlayerObstacle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Screens\HelloWorldLoadingScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -158,9 +155,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Compiler\Compiler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Physics\PlayerObstacle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\HelloWorldLoadingScreen.h">

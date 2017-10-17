@@ -8,6 +8,7 @@
 #include "Input/KeyboardActivator.h"
 #include "Input/KeyboardVisibilityScript.h"
 #include "Input/TerminalInputHandler.h"
+#include "Physics/PhysicsUtils.h"
 
 
 using namespace CelesteEngine::Physics;
@@ -40,6 +41,8 @@ namespace HW
     playerMovement->setDecreaseXLinearVelocityKey(GLFW_KEY_A);
     playerMovement->setLinearVelocityDelta(500, 0);
     playerMovement->setIncrementMode(KeyboardRigidBody2DController::kToggle);
+
+    addSimulatedBody(player->findComponent<Collider>(), player->findComponent<RigidBody2D>());
 
     return player;
   }

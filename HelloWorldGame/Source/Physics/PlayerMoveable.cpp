@@ -50,6 +50,7 @@ namespace HW
         if (!m_moving)
         {
           m_offset = glm::vec2();
+          getGameObject()->findComponent<Collider>()->setActive(true);
         }
       }
       else if (m_player->findComponent<Collider>()->intersects(getGameObject()->findComponent<Collider>()))
@@ -57,9 +58,11 @@ namespace HW
         m_moving = isKeyDown(GLFW_KEY_LEFT_SHIFT) || isKeyDown(GLFW_KEY_RIGHT_SHIFT);
         if (m_moving)
         {
-          glm::vec3 diff = m_player->getTransform()->getWorldTranslation() - getTransform()->getWorldTranslation();
+          glm::vec3 diff = getTransform()->getWorldTranslation() - m_player->getTransform()->getWorldTranslation();
           m_offset.x = diff.x;
           m_offset.y = diff.y;
+
+          getGameObject()->findComponent<Collider>()->setActive(false);
         }
       }
     }
@@ -72,7 +75,7 @@ namespace HW
       // Move object accordingly
       if (m_moving)
       {
-        getTransform()->setWorldTranslation(m_player->getTransform()->getWorldTranslation() - glm::vec3(m_offset, 0));
+        getTransform()->setWorldTranslation(m_player->getTransform()->getWorldTranslation() + glm::vec3(m_offset, 0));
       }
     }
 
