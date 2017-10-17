@@ -52,7 +52,7 @@ namespace HW
           m_offset = glm::vec2();
         }
       }
-      else if (m_player->findComponent<Collider>()->intersects(getGameObject()->findComponent<RectangleCollider>()->rectangle()))
+      else if (m_player->findComponent<Collider>()->intersects(getGameObject()->findComponent<Collider>()))
       {
         m_moving = isKeyDown(GLFW_KEY_LEFT_SHIFT) || isKeyDown(GLFW_KEY_RIGHT_SHIFT);
         if (m_moving)

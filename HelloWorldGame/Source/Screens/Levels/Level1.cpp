@@ -7,8 +7,12 @@
 #include "Events/EventTriggerer.h"
 #include "Input/KeyboardActivator.h"
 #include "Input/KeyboardVisibilityScript.h"
+#include "Physics/RectangleCollider.h"
+#include "Physics/PhysicsManager.h"
+#include "Physics/RigidBody2D.h"
 
 using namespace CelesteEngine::Input;
+using namespace CelesteEngine::Physics;
 
 
 namespace HW
@@ -51,6 +55,8 @@ namespace HW
       const Handle<GameObject>& player = level1.createPlayer(
         playerSize, glm::vec3(viewportDimensions.x * 0.25f, floorSize.y + playerSize.y * 0.5f, 0));
       player->setTransformParent(levelActivationGrouper);
+      
+      addSimulatedBody(player->findComponent<Collider>(), player->findComponent<RigidBody2D>());
     }
 
     {
@@ -64,7 +70,8 @@ namespace HW
     {
       const Handle<GameObject>& doorObject = level1.createGameObject(kGUI, glm::vec3(viewportDimensions - doorSize * 0.5f, 0), "Door", levelActivationGrouper);
       SpriteRenderer::create(doorObject, Path("Sprites", "MetalDoor.png"), doorSize);
-      doorObject->addComponent<PlayerObstacle>();
+      RectangleCollider::create(doorObject, doorSize);
+      //doorObject->addComponent<PlayerObstacle>();
     }
 
     // Create exit
