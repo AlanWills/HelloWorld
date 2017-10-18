@@ -143,6 +143,7 @@
     <ClCompile Include="Source\Screens\LevelScreenCreator.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp" />
     <ClCompile Include="Source\Screens\Levels\Level2.cpp" />
+    <ClCompile Include="Source\UI\NewCodeDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav" />
@@ -193,6 +194,7 @@
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h" />
     <ClInclude Include="Headers\GraphicalFX\TypingTextEffect.h" />
     <ClInclude Include="Headers\Screens\Levels\Level2.h" />
+    <ClInclude Include="Headers\UI\NewCodeDialog.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resources\Data\Settings\Settings.xml" />
