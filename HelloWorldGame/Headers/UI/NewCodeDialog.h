@@ -2,10 +2,9 @@
 
 #include "Memory/Handle.h"
 #include "Objects/GameObject.h"
+#include "Screens/ScreenCreator.h"
 
 #include <string>
-
-using namespace CelesteEngine;
 
 
 namespace HW
@@ -14,9 +13,15 @@ namespace HW
 
   namespace UI
   {
-    namespace NewCodeDialog
+    class NewCodeDialog : CelesteEngine::ScreenCreator
     {
-      void show(const LevelScreenCreator& screenCreator);
-    }
+      DECLARE_SCREEN_CREATOR(NewCodeDialog)
+
+      public:
+        static void showModal(const std::string& text);
+
+      private:
+        typedef CelesteEngine::ScreenCreator Inherited;
+    };
   }
 }

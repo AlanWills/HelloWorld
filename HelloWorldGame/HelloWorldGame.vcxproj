@@ -128,7 +128,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Code\PlayerScriptCommands.cpp" />
+    <ClCompile Include="Source\Code\ScriptCommandsRegistry.cpp" />
     <ClCompile Include="Source\Compiler\Compiler.cpp" />
+    <ClCompile Include="Source\DataConverters\PlayerScriptCommandsDataConverter.cpp" />
     <ClCompile Include="Source\GraphicalFX\TypingTextEffect.cpp" />
     <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
     <ClCompile Include="Source\Input\TerminalInputHandler.cpp" />
@@ -180,7 +183,11 @@
     <Image Include="Resources\Textures\Sprites\UI\UpDirectionIndicator.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Code\PlayerScriptCommands.h" />
+    <ClInclude Include="Headers\Code\ScriptCommandDefs.h" />
+    <ClInclude Include="Headers\Code\ScriptCommandsRegistry.h" />
     <ClInclude Include="Headers\Compiler\Compiler.h" />
+    <ClInclude Include="Headers\DataConverters\PlayerScriptCommandsDataConverter.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
     <ClInclude Include="Headers\Input\TerminalInputHandler.h" />
