@@ -7,6 +7,6 @@ namespace HW
 {
   namespace Compiler
   {
-    void run(const std::string& code, std::vector<std::string>& output);
+    void run(const std::string& code);
   }
 }

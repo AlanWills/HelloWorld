@@ -30,5 +30,14 @@ namespace HW
         load();
       });
     }
+
+    //------------------------------------------------------------------------------------------------
+    void PlayerScriptCommands::invokeCommand(const std::string& name, const ArgList& args) const
+    {
+      if (hasCommand(name))
+      {
+        m_commands.at(name)(args);
+      }
+    }
   }
 }

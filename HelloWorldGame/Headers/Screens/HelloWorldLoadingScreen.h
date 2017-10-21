@@ -64,6 +64,7 @@ void HelloWorldLoadingScreen::create()
     progressBar->addComponent<LevelLoader>();
   }
 
+  // Load the players available script commands
   Code::PlayerScriptCommands::instance().loadAsync();
 }
 

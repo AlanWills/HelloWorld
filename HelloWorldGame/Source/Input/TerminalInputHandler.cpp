@@ -102,10 +102,8 @@ namespace HW
         {
           case GLFW_KEY_ENTER:
           {
-            // Textbox will have added an empty line so we have to get the second to last line (hence -2)
-            // Could have two renderers - one for history and the other for the current editable text?
             std::vector<std::string> output;
-            Compiler::run(m_textRenderer->getLine(0), output);
+            Compiler::run(m_textRenderer->getLine(0).substr(2));
 
             m_textRenderer->resetLines("> ");
             setLetterIndex(2);

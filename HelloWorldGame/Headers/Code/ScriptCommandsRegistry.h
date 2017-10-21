@@ -22,7 +22,8 @@ namespace HW
         /// Could be that we need to rethink the storage here
         static ScriptCommand getCommand(const std::string& name) { return hasCommand(name) ? m_commands.at(name) : nullptr; }
 
-        static void listObjects() { }
+        static void listObjects(const ArgList& args) { }
+        static void killObject(const ArgList& args);
 
       private:
         static ScriptCommands m_commands;

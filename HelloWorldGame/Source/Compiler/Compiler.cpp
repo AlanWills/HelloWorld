@@ -4,48 +4,35 @@
 #include "Objects/GameObject.h"
 #include "Screens/ScreenManager.h"
 #include "Screens/Levels/Level1.h"
+#include "Code/PlayerScriptCommands.h"
 
 
 using namespace CelesteEngine;
 
 namespace HW
 {
+  using namespace Code;
+
   namespace Compiler
   {
     //------------------------------------------------------------------------------------------------
-    void run(const std::string& code, std::vector<std::string>& output)
+    void run(const std::string& code)
     {
-      std::string subStr = code.substr(2);
-
-      if (subStr == "listObjects()")
+      if (code.substr(0, 11) == "killObject(")
       {
-        std::vector<Handle<GameObject>> namedObjects;
-        getScreenManager()->findScreen("LevelScreen")->findGameObjects([](const GameObject* gameObject) -> bool
+        std::string& name = code.substr(11, code.size() - 12);
+        if (PlayerScriptCommands::instance().hasCommand("killObject"))
         {
-          return gameObject->getName() != 0;
-        }, namedObjects);
-
-        for (const Handle<GameObject>& gameObject : namedObjects)
-        {
-          output.push_back(deinternString(gameObject->getName()));
-        }
-      }
-      else if (subStr.substr(0, 11) == "killObject(")
-      {
-        const std::string& name = subStr.substr(11, subStr.size() - 12);
-        const Handle<GameObject>& gameObject = getScreenManager()->findScreen("LevelScreen")->findGameObjectWithName(name);
-        if (!gameObject.is_null())
-        {
-          gameObject->die();
+          PlayerScriptCommands::instance().invokeCommand("killObject", ArgList { { "name", static_cast<void*>(&name) } });
         }
         else
         {
-          output.push_back(name + " does not exist");
+          ASSERT_FAIL();
         }
       }
       else
       {
-        output.push_back("Unrecognized command");
+        ASSERT_FAIL();
       }
     }
   }
