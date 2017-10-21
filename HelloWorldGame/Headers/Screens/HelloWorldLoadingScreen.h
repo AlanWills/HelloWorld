@@ -5,6 +5,7 @@
 #include "GraphicalFX/TypingTextEffect.h"
 #include "UI/ProgressBar.h"
 #include "Loading/LevelLoader.h"
+#include "Code/PlayerScriptCommands.h"
 
 
 namespace HW
@@ -62,6 +63,8 @@ void HelloWorldLoadingScreen::create()
     ProgressBar::create(progressBar, 0, 3);
     progressBar->addComponent<LevelLoader>();
   }
+
+  Code::PlayerScriptCommands::instance().loadAsync();
 }
 
 }

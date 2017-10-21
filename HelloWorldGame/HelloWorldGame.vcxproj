@@ -204,6 +204,7 @@
     <ClInclude Include="Headers\UI\NewCodeDialog.h" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="Resources\Data\Player\PlayerScriptCommands.xml" />
     <Xml Include="Resources\Data\Settings\Settings.xml" />
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace HW
     // Initialize static registry of function lookups here
     ScriptCommands ScriptCommandsRegistry::m_commands = ScriptCommands
     {
-
+      { "listObjects", std::bind(&ScriptCommandsRegistry::listObjects) }
     };
   }
 }

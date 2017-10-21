@@ -208,5 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resources\Data\Settings\Settings.xml" />
+    <Xml Include="Resources\Data\Player\PlayerScriptCommands.xml" />
   </ItemGroup>
 </Project>

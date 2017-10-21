@@ -11,17 +11,18 @@ namespace HW
     class PlayerScriptCommandsDataConverter : CelesteEngine::DataConverter
     {
       public:
+        PlayerScriptCommandsDataConverter(const Path& dataFilePath);
         PlayerScriptCommandsDataConverter(const CelesteEngine::ConstHandle<CelesteEngine::Data>& dataFile);
         PlayerScriptCommandsDataConverter(const tinyxml2::XMLElement* element);
 
-        const std::vector<Code::ScriptCommand>& getCommands() const { return m_commands; }
+        const Code::ScriptCommands& getCommands() const { return m_commands; }
 
       private:
         typedef CelesteEngine::DataConverter Inherited;
 
         void load(const tinyxml2::XMLElement* element);
 
-        std::vector<Code::ScriptCommand> m_commands;
+        Code::ScriptCommands m_commands;
     };
   }
 }
