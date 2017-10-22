@@ -138,6 +138,7 @@
     <ClCompile Include="Source\Loading\LevelLoader.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\HelloWorldGame.cpp" />
+    <ClCompile Include="Source\Physics\DoorSwitch.cpp" />
     <ClCompile Include="Source\Physics\PlayerMoveable.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldLoadingScreen.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldOptionsScreen.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
     <ClInclude Include="Headers\Input\TerminalInputHandler.h" />
     <ClInclude Include="Headers\Loading\LevelLoader.h" />
+    <ClInclude Include="Headers\Physics\DoorSwitch.h" />
     <ClInclude Include="Headers\Physics\PlayerMoveable.h" />
     <ClInclude Include="Headers\Screens\HelloWorldLoadingScreen.h" />
     <ClInclude Include="Headers\Screens\HelloWorldOptionsScreen.h" />

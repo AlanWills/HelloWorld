@@ -8,9 +8,12 @@
 #include "Physics/RectangleCollider.h"
 #include "Physics/PlayerMoveable.h"
 #include "Screens/HelloWorldMainMenuScreen.h"
+#include "Physics/DoorSwitch.h"
+#include "Animation/Animators/MoveToPositionAnimator.h"
 
 using namespace CelesteEngine::Input;
 using namespace CelesteEngine::Physics;
+using namespace CelesteEngine::Animators;
 
 
 namespace HW
@@ -65,15 +68,8 @@ namespace HW
     {
       const Handle<GameObject>& draggableObject = level.createGameObject(kGUI, glm::vec2(700, floorSize.y + draggableSize.y * 0.5f), "Draggable", levelActivationGrouper);
       SpriteRenderer::create(draggableObject, Path("Sprites", "UI", "Rectangle.png"), draggableSize);
+      RectangleCollider::create(draggableObject, draggableSize, kTrigger);
       draggableObject->addComponent<PlayerMoveable>();
-    }
-
-    // Create switch for door
-    glm::vec2 switchSize = glm::vec2(100, 20);
-    {
-      const Handle<GameObject>& switchObject = level.createGameObject(kGUI, glm::vec2(400, floorSize.y - switchSize.y * 0.5f), "Switch", levelActivationGrouper);
-      SpriteRenderer::create(switchObject, Path("Sprites", "UI", "Rectangle.png"), draggableSize, glm::vec4(1, 0, 0, 1));
-      RectangleCollider::create(switchObject, switchSize);
     }
 
     // Create door
@@ -81,7 +77,20 @@ namespace HW
     {
       const Handle<GameObject>& doorObject = level.createGameObject(kGUI, viewportDimensions - doorSize * 0.5f, "Door", levelActivationGrouper);
       SpriteRenderer::create(doorObject, Path("Sprites", "MetalDoor.png"), doorSize);
-      RectangleCollider::create(doorObject, doorSize, glm::vec2(0, doorSize.y * 0.5f));
+      RectangleCollider::create(doorObject, doorSize);
+      MoveToPositionAnimator::create(doorObject, doorObject->getTransform()->getTranslation(), 1);
+
+      // Create switch for door
+      glm::vec2 switchSize = glm::vec2(100, 20);
+      {
+        const Handle<GameObject>& switchObject = level.createGameObject(kGUI, glm::vec3(400, floorSize.y - switchSize.y * 0.5f, 0.01f), "Switch", levelActivationGrouper);
+        SpriteRenderer::create(switchObject, Path("Sprites", "UI", "Rectangle.png"), switchSize, glm::vec4(1, 0, 0, 1));
+        RectangleCollider::create(switchObject, switchSize, kTrigger, glm::vec2(0, switchSize.y * 0.5f));
+        const Handle<DoorSwitch>& switchScript = switchObject->addComponent<DoorSwitch>();
+        switchScript->setDoor(doorObject);
+        switchScript->setShutPosition(doorObject->getTransform()->getTranslation());
+        switchScript->setOpenPosition(doorObject->getTransform()->getTranslation() + glm::vec3(0, doorSize.y * 0.5f, 0));
+      }
     }
 
     // Create exit
