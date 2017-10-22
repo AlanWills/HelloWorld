@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Objects/Script.h"
+#include "Physics/Collider.h"
 
 
 namespace HW
@@ -12,17 +13,17 @@ namespace HW
       DECLARE_SCRIPT(PlayerMoveable)
 
       protected:
-        void onSetGameObject(const Handle<GameObject>& gameObject) override;
         void onHandleInput() override;
-        void onUpdate(GLfloat elapsedGameTime) override;
+        void onCollisionEnter(const ConstHandle<CelesteEngine::Physics::Collider>& collider) override;
+        void onCollisionExit(const ConstHandle<CelesteEngine::Physics::Collider>& collider) override;
         void onDeath() override;
 
       private:
         typedef CelesteEngine::Script Inherited;
 
-        ConstHandle<GameObject> m_player;
-        bool m_moving;
-        glm::vec2 m_offset;
+        bool m_canBePickedUp;
+
+        Handle<Transform> m_oldParent;
     };
   }
 }

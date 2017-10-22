@@ -8,6 +8,7 @@
 
 using namespace CelesteEngine::Animators;
 using namespace CelesteEngine::Rendering;
+using namespace CelesteEngine::Physics;
 
 
 namespace HW
@@ -18,10 +19,11 @@ namespace HW
 
     //------------------------------------------------------------------------------------------------
     DoorSwitch::DoorSwitch() :
-      m_collider(),
       m_door(),
+      m_draggable(),
       m_shutPosition(),
-      m_openPosition()
+      m_openPosition(),
+      m_opening(false)
     {
     }
 
@@ -31,24 +33,59 @@ namespace HW
     }
 
     //------------------------------------------------------------------------------------------------
-    void DoorSwitch::onSetGameObject(const Handle<GameObject>& gameObject)
+    void DoorSwitch::onCollisionEnter(const ConstHandle<Collider>& collider)
     {
-      Inherited::onSetGameObject(gameObject);
+      Inherited::onCollisionEnter(collider);
 
-      m_collider = gameObject->findComponent<RectangleCollider>();
+      tryOpenDoor();
     }
 
     //------------------------------------------------------------------------------------------------
-    void DoorSwitch::onUpdate(GLfloat elapsedGameTime)
+    void DoorSwitch::onTriggerEnter(const ConstHandle<Collider>& collider)
     {
-      Inherited::onUpdate(elapsedGameTime);
+      Inherited::onTriggerEnter(collider);
 
-      // Need to store both start and end positions of door as variables
-      // Then can manipulate both x and y if necessary
+      tryOpenDoor();
+    }
 
-      const Handle<GameObject>& player = getGameObject()->getOwnerScreen()->findGameObjectWithName("Player");
-      const Handle<MoveToPositionAnimator>& animator = m_door->findComponent<MoveToPositionAnimator>();
-      animator->setTargetPosition(m_collider->intersects(player->findComponent<RectangleCollider>()) ? m_openPosition : m_shutPosition);
+    //------------------------------------------------------------------------------------------------
+    void DoorSwitch::onCollisionExit(const ConstHandle<Collider>& collider)
+    {
+      Inherited::onCollisionEnter(collider);
+
+      tryCloseDoor();
+    }
+
+    //------------------------------------------------------------------------------------------------
+    void DoorSwitch::onTriggerExit(const ConstHandle<Collider>& collider)
+    {
+      Inherited::onTriggerExit(collider);
+
+      tryCloseDoor();
+    }
+
+    //------------------------------------------------------------------------------------------------
+    void DoorSwitch::tryOpenDoor()
+    {
+      if (!m_opening)
+      {
+        const Handle<MoveToPositionAnimator>& animator = m_door->findComponent<MoveToPositionAnimator>();
+        m_door->findComponent<MoveToPositionAnimator>()->setTargetPosition(m_openPosition);
+        animator->setActive(true);
+        m_opening = true;
+      }
+    }
+
+    //------------------------------------------------------------------------------------------------
+    void DoorSwitch::tryCloseDoor()
+    {
+      if (m_opening && !getGameObject()->findComponent<RectangleCollider>()->intersects(m_draggable->findComponent<RectangleCollider>()))
+      {
+        const Handle<MoveToPositionAnimator>& animator = m_door->findComponent<MoveToPositionAnimator>();
+        m_door->findComponent<MoveToPositionAnimator>()->setTargetPosition(m_shutPosition);
+        animator->setActive(true);
+        m_opening = false;
+      }
     }
 
     //------------------------------------------------------------------------------------------------

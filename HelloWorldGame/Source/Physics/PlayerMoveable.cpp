@@ -3,7 +3,6 @@
 #include "Physics/PlayerMoveable.h"
 #include "Input/InputManager.h"
 #include "Objects/GameObject.h"
-#include "Physics/RectangleCollider.h"
 #include "Screens/Screen.h"
 
 using namespace CelesteEngine::Input;
@@ -18,9 +17,8 @@ namespace HW
 
     //------------------------------------------------------------------------------------------------
     PlayerMoveable::PlayerMoveable() :
-      m_player(),
-      m_moving(false),
-      m_offset()
+      m_canBePickedUp(false),
+      m_oldParent()
     {
     }
 
@@ -30,53 +28,51 @@ namespace HW
     }
 
     //------------------------------------------------------------------------------------------------
-    void PlayerMoveable::onSetGameObject(const Handle<GameObject>& gameObject)
-    {
-      Inherited::onSetGameObject(gameObject);
-
-      m_player = gameObject->getOwnerScreen()->findGameObjectWithName("Player").as_const();
-    }
-
-    //------------------------------------------------------------------------------------------------
     void PlayerMoveable::onHandleInput()
     {
       Inherited::onHandleInput();
 
-      // Check collision of player and this objects colliders
-      // And then if shift is down, we set moving to true
-      if (m_moving)
+      if (m_canBePickedUp)
       {
-        m_moving = isKeyDown(GLFW_KEY_LEFT_SHIFT) || isKeyDown(GLFW_KEY_RIGHT_SHIFT);
-        if (!m_moving)
+        const Handle<GameObject>& player = getGameObject()->getOwnerScreen()->findGameObjectWithName("Player");
+        if (isKeyDown(GLFW_KEY_LEFT_SHIFT) || isKeyDown(GLFW_KEY_RIGHT_SHIFT))
         {
-          m_offset = glm::vec2();
-          getGameObject()->findComponent<Collider>()->setActive(true);
+          if (getTransform()->getParent() != player->getTransform())
+          {
+            const glm::vec3& newTranslation = getTransform()->getWorldTranslation() - player->getTransform()->getWorldTranslation();
+            m_oldParent = getTransform()->getParent();
+            getTransform()->setParent(player->getTransform());
+            getTransform()->setTranslation(newTranslation);
+          }
         }
-      }
-      else if (m_player->findComponent<Collider>()->intersects(getGameObject()->findComponent<Collider>()))
-      {
-        m_moving = isKeyDown(GLFW_KEY_LEFT_SHIFT) || isKeyDown(GLFW_KEY_RIGHT_SHIFT);
-        if (m_moving)
+        else if (getTransform()->getParent() == player->getTransform())
         {
-          glm::vec3 diff = getTransform()->getWorldTranslation() - m_player->getTransform()->getWorldTranslation();
-          m_offset.x = diff.x;
-          m_offset.y = diff.y;
+          ASSERT(!m_oldParent.is_null());
 
-          getGameObject()->findComponent<Collider>()->setActive(false);
+          const glm::vec3& newTranslation = getTransform()->getWorldTranslation();
+          getTransform()->setParent(m_oldParent);
+          getTransform()->setWorldTranslation(newTranslation);
         }
       }
     }
 
     //------------------------------------------------------------------------------------------------
-    void PlayerMoveable::onUpdate(GLfloat elapsedGameTime)
+    void PlayerMoveable::onCollisionEnter(const ConstHandle<Collider>& collider)
     {
-      Inherited::onUpdate(elapsedGameTime);
+      Inherited::onCollisionEnter(collider);
 
-      // Move object accordingly
-      if (m_moving)
-      {
-        getTransform()->setWorldTranslation(m_player->getTransform()->getWorldTranslation() + glm::vec3(m_offset, 0));
-      }
+      // We can pick up if we can already pick up
+      // Or we can't, but the collided object is the player
+      m_canBePickedUp = m_canBePickedUp || (collider->getGameObject()->getName() == std::string("Player"));
+    }
+
+    //------------------------------------------------------------------------------------------------
+    void PlayerMoveable::onCollisionExit(const ConstHandle<Collider>& collider)
+    {
+      Inherited::onCollisionExit(collider);
+
+      // We can only pick up if we could before and the object leaving is not the player
+      m_canBePickedUp = m_canBePickedUp && (collider->getGameObject()->getName() != std::string("Player"));
     }
 
     //------------------------------------------------------------------------------------------------
@@ -84,9 +80,8 @@ namespace HW
     {
       Inherited::onDeath();
 
-      m_player.reset();
-      m_moving = false;
-      m_offset = glm::vec2();
+      m_canBePickedUp = false;
+      m_oldParent.reset();
     }
   }
 }
