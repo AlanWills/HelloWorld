@@ -70,7 +70,9 @@ namespace HW
       if (!m_opening)
       {
         const Handle<MoveToPositionAnimator>& animator = m_door->findComponent<MoveToPositionAnimator>();
-        m_door->findComponent<MoveToPositionAnimator>()->setTargetPosition(m_openPosition);
+        animator->setTargetPosition(m_openPosition);
+        // Scale time based on how much of the animation has already been completed
+        animator->setTime(glm::distance(m_door->getTransform()->getTranslation(), m_openPosition) / glm::distance(m_shutPosition, m_openPosition));
         animator->setActive(true);
         m_opening = true;
       }
@@ -82,7 +84,9 @@ namespace HW
       if (m_opening && !getGameObject()->findComponent<RectangleCollider>()->intersects(m_draggable->findComponent<RectangleCollider>()))
       {
         const Handle<MoveToPositionAnimator>& animator = m_door->findComponent<MoveToPositionAnimator>();
-        m_door->findComponent<MoveToPositionAnimator>()->setTargetPosition(m_shutPosition);
+        animator->setTargetPosition(m_shutPosition);
+        // Scale time based on how much of the animation has already been completed
+        animator->setTime(glm::distance(m_door->getTransform()->getTranslation(), m_shutPosition) / glm::distance(m_shutPosition, m_openPosition));
         animator->setActive(true);
         m_opening = false;
       }

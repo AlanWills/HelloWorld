@@ -98,6 +98,7 @@
     <Media Include="Resources\Audio\StartupMusic.wav">
       <Filter>Resource Files</Filter>
     </Media>
+    <Media Include="Resources\Misc\Scifi Action.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\Fonts\Arial.ttf" />
@@ -108,6 +109,8 @@
     <None Include="Resources\Geometry Shaders\sprite.geom" />
     <None Include="Resources\Vertex Shaders\sprite.vert" />
     <None Include="Resources\Vertex Shaders\text.vert" />
+    <None Include="Resources\Misc\Drifting_Through_the_Nebula_Ambient_.ogg" />
+    <None Include="Resources\Misc\The_Swarm_Approaches.ogg" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Textures\Sprites\UI\ButtonDefault.png">
@@ -147,6 +150,78 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\Textures\Sprites\UI\ProgressBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\explosion.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\Icon_rotate.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\lvlup.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\mina_explosiva.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\spike.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\Alfabeto.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\alt_cursor_turq.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\arrow_horiz_green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\arrow_horiz_red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\arrow_vertic_green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\arrow_vertic_red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\bar_tube_01.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\bar_tube_01_alt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\cautionwindow_red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\crosshair_smooth_grey_01.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\dialog_frame_01.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\Fire.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\Kind of Techno Icons.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\LaserGate1.PNG">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\LaserGate2.PNG">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\Life.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\Select_hand.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\skeleton.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Misc\Thunder.gif">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

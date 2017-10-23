@@ -34,19 +34,24 @@ namespace HW
 
       if (m_canBePickedUp)
       {
+        // If the pickup key has been held
         const Handle<GameObject>& player = getGameObject()->getOwnerScreen()->findGameObjectWithName("Player");
         if (isKeyDown(GLFW_KEY_LEFT_SHIFT) || isKeyDown(GLFW_KEY_RIGHT_SHIFT))
         {
+          // And the item hasn't already been picked up
           if (getTransform()->getParent() != player->getTransform())
           {
+            // Pick it up
             const glm::vec3& newTranslation = getTransform()->getWorldTranslation() - player->getTransform()->getWorldTranslation();
             m_oldParent = getTransform()->getParent();
             getTransform()->setParent(player->getTransform());
             getTransform()->setTranslation(newTranslation);
           }
         }
+        // If the item hasn't already been dropped
         else if (getTransform()->getParent() == player->getTransform())
         {
+          // Drop it
           ASSERT(!m_oldParent.is_null());
 
           const glm::vec3& newTranslation = getTransform()->getWorldTranslation();

@@ -28,21 +28,22 @@ namespace HW
   //------------------------------------------------------------------------------------------------
   Handle<GameObject> LevelScreenCreator::createPlayer(const glm::vec2& size, const glm::vec3& translation)
   {
-    const Handle<GameObject>& player = createGameObject(kGUI, translation, "Player");
+    const Handle<GameObject>& player = createGameObject(kWorld, translation, "Player");
     SpriteRenderer::create(player, Path("Sprites", "UI", "Rectangle.png"), size, glm::vec4(1, 1, 1, 1));
 
     const Handle<RectangleCollider>& playerCollider = player->addComponent<RectangleCollider>();
     playerCollider->setDimensions(player->findComponent<Renderer>()->getDimensions());
 
-    player->addComponent<RigidBody2D>();
+    const Handle<RigidBody2D>& rigidBody = player->addComponent<RigidBody2D>();
+    rigidBody->setMaxLinearVelocity(glm::vec2(1, FLT_MAX));
+    rigidBody->setMinLinearVelocity(glm::vec2(-1, -FLT_MAX));
 
     const Handle<KeyboardRigidBody2DController>& playerMovement = player->addComponent<KeyboardRigidBody2DController>();
     playerMovement->setIncreaseXLinearVelocityKey(GLFW_KEY_D);
     playerMovement->setDecreaseXLinearVelocityKey(GLFW_KEY_A);
-    playerMovement->setLinearVelocityDelta(500, 0);
-    playerMovement->setIncrementMode(KeyboardRigidBody2DController::kToggle);
+    playerMovement->setLinearVelocityDelta(1, 0);
 
-    addSimulatedBody(player->findComponent<Collider>(), player->findComponent<RigidBody2D>());
+    addSimulatedBody(playerCollider, rigidBody);
 
     return player;
   }

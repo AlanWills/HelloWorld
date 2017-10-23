@@ -157,6 +157,7 @@
     <Media Include="Resources\Audio\KeyPresses\KeyPress3.wav" />
     <Media Include="Resources\Audio\HorrorOfSelf.wav" />
     <Media Include="Resources\Audio\StartupMusic.wav" />
+    <Media Include="Resources\Misc\Scifi Action.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\Fonts\Arial.ttf" />
@@ -165,10 +166,36 @@
     <None Include="Resources\Fragment Shaders\sprite.frag" />
     <None Include="Resources\Fragment Shaders\text.frag" />
     <None Include="Resources\Geometry Shaders\sprite.geom" />
+    <None Include="Resources\Misc\Drifting_Through_the_Nebula_Ambient_.ogg" />
+    <None Include="Resources\Misc\The_Swarm_Approaches.ogg" />
     <None Include="Resources\Vertex Shaders\sprite.vert" />
     <None Include="Resources\Vertex Shaders\text.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\Misc\Alfabeto.png" />
+    <Image Include="Resources\Misc\alt_cursor_turq.png" />
+    <Image Include="Resources\Misc\arrow_horiz_green.png" />
+    <Image Include="Resources\Misc\arrow_horiz_red.png" />
+    <Image Include="Resources\Misc\arrow_vertic_green.png" />
+    <Image Include="Resources\Misc\arrow_vertic_red.png" />
+    <Image Include="Resources\Misc\bar_tube_01.png" />
+    <Image Include="Resources\Misc\bar_tube_01_alt.png" />
+    <Image Include="Resources\Misc\cautionwindow_red.png" />
+    <Image Include="Resources\Misc\crosshair_smooth_grey_01.png" />
+    <Image Include="Resources\Misc\dialog_frame_01.png" />
+    <Image Include="Resources\Misc\explosion.gif" />
+    <Image Include="Resources\Misc\Fire.gif" />
+    <Image Include="Resources\Misc\Icon_rotate.gif" />
+    <Image Include="Resources\Misc\Kind of Techno Icons.png" />
+    <Image Include="Resources\Misc\LaserGate1.PNG" />
+    <Image Include="Resources\Misc\LaserGate2.PNG" />
+    <Image Include="Resources\Misc\Life.gif" />
+    <Image Include="Resources\Misc\lvlup.gif" />
+    <Image Include="Resources\Misc\mina_explosiva.gif" />
+    <Image Include="Resources\Misc\Select_hand.gif" />
+    <Image Include="Resources\Misc\skeleton.png" />
+    <Image Include="Resources\Misc\spike.gif" />
+    <Image Include="Resources\Misc\Thunder.gif" />
     <Image Include="Resources\Textures\Sprites\BinaryBackground.jpg" />
     <Image Include="Resources\Textures\Sprites\ComputerTerminal.png" />
     <Image Include="Resources\Textures\Sprites\MetalDoor.png" />
