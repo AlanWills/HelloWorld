@@ -1,14 +1,15 @@
 #include "stdafx.h"
 
 #include "Screens/LevelScreenCreator.h"
-#include "Physics/RectangleCollider.h"
-#include "Input/KeyboardRigidBody2DController.h"
 #include "Rendering/SpriteRenderer.h"
 #include "Rendering/TextRenderer.h"
 #include "Input/KeyboardActivator.h"
 #include "Input/KeyboardVisibilityScript.h"
+#include "Input/KeyboardMovementScript.h"
 #include "Input/TerminalInputHandler.h"
+#include "Physics/RectangleCollider.h"
 #include "Physics/PhysicsUtils.h"
+#include "Physics/RigidBody2D.h"
 
 
 using namespace CelesteEngine::Physics;
@@ -38,11 +39,8 @@ namespace HW
     rigidBody->setMaxLinearVelocity(glm::vec2(1, FLT_MAX));
     rigidBody->setMinLinearVelocity(glm::vec2(-1, -FLT_MAX));
 
-    const Handle<KeyboardRigidBody2DController>& playerMovement = player->addComponent<KeyboardRigidBody2DController>();
-    playerMovement->setIncreaseXLinearVelocityKey(GLFW_KEY_D);
-    playerMovement->setDecreaseXLinearVelocityKey(GLFW_KEY_A);
-    playerMovement->setLinearVelocityDelta(1, 0);
-
+    KeyboardMovementScript::create(player, GLFW_KEY_A, GLFW_KEY_D, -1, -1, 1);
+    
     addSimulatedBody(playerCollider, rigidBody);
 
     return player;
