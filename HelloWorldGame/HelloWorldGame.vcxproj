@@ -133,6 +133,7 @@
     <ClCompile Include="Source\Compiler\Compiler.cpp" />
     <ClCompile Include="Source\DataConverters\PlayerScriptCommandsDataConverter.cpp" />
     <ClCompile Include="Source\GraphicalFX\TypingTextEffect.cpp" />
+    <ClCompile Include="Source\Input\PlayerMovementHandler.cpp" />
     <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
     <ClCompile Include="Source\Input\TerminalInputHandler.cpp" />
     <ClCompile Include="Source\Loading\LevelLoader.cpp" />
@@ -217,6 +218,7 @@
     <ClInclude Include="Headers\Compiler\Compiler.h" />
     <ClInclude Include="Headers\DataConverters\PlayerScriptCommandsDataConverter.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
+    <ClInclude Include="Headers\Input\PlayerMovementHandler.h" />
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
     <ClInclude Include="Headers\Input\TerminalInputHandler.h" />
     <ClInclude Include="Headers\Loading\LevelLoader.h" />

@@ -5,7 +5,7 @@
 #include "Rendering/TextRenderer.h"
 #include "Input/KeyboardActivator.h"
 #include "Input/KeyboardVisibilityScript.h"
-#include "Input/KeyboardTranslationScript.h"
+#include "Input/PlayerMovementHandler.h"
 #include "Input/TerminalInputHandler.h"
 #include "Physics/RectangleCollider.h"
 #include "Physics/PhysicsUtils.h"
@@ -39,7 +39,7 @@ namespace HW
     rigidBody->setMaxLinearVelocity(glm::vec2(500, FLT_MAX));
     rigidBody->setMinLinearVelocity(glm::vec2(-500, -FLT_MAX));
 
-    KeyboardTranslationScript::create(player, GLFW_KEY_A, GLFW_KEY_D, -1, -1, 500);
+    PlayerMovementHandler::create(player, GLFW_KEY_A, GLFW_KEY_D, -1, -1, 500);
     
     addSimulatedBody(playerCollider, rigidBody);
 
