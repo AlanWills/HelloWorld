@@ -36,20 +36,21 @@ namespace HW
 
     const glm::vec2& viewportDimensions = level.getViewportDimensions();
 
-    const Handle<GameObject>& levelActivationGrouper = level.createGameObject(kGUI, glm::vec2(), "LevelActivationGrouper");
+    const Handle<GameObject>& levelActivationGrouper = level.createGameObject(kWorld, glm::vec2(), "LevelActivationGrouper");
     KeyboardActivator::create(levelActivationGrouper, GLFW_KEY_DOWN, GLFW_KEY_UP, kToggle);
 
     // Create background
     {
-      const Handle<GameObject>& background = level.createGameObject(kGUI, glm::vec3(viewportDimensions * 0.5f, -0.1f), "Background", levelActivationGrouper);
+      const Handle<GameObject>& background = level.createGameObject(kWorld, glm::vec3(viewportDimensions * 0.5f, -0.1f), "Background", levelActivationGrouper);
       SpriteRenderer::create(background, Path("Sprites", "BinaryBackground.jpg"), viewportDimensions);
     }
 
     // Create floor
     glm::vec2 floorSize = glm::vec2(viewportDimensions.x, viewportDimensions.y * 0.25f);
     {
-      const Handle<GameObject>& floorObject = level.createGameObject(kGUI, glm::vec3(floorSize * 0.5f, 0), "Floor", levelActivationGrouper);
+      const Handle<GameObject>& floorObject = level.createGameObject(kWorld, glm::vec3(floorSize * 0.5f, 0), "Floor", levelActivationGrouper);
       SpriteRenderer::create(floorObject, Path("Sprites", "UI", "Rectangle.png"), floorSize);
+      RectangleCollider::create(floorObject, floorSize);
     }
 
     // Create player
@@ -60,13 +61,13 @@ namespace HW
     }
 
     {
-      const Handle<GameObject>& leftHandObstacle = level.createGameObject(kGUI, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelActivationGrouper);
+      const Handle<GameObject>& leftHandObstacle = level.createGameObject(kWorld, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelActivationGrouper);
       RectangleCollider::create(leftHandObstacle, glm::vec2(4, viewportDimensions.y));
     }
 
     // Create draggable
     glm::vec2 draggableSize = glm::vec2(50, 50);
-    const Handle<GameObject>& draggableObject = level.createGameObject(kGUI, glm::vec2(700, floorSize.y + draggableSize.y * 0.5f), "Draggable", levelActivationGrouper);
+    const Handle<GameObject>& draggableObject = level.createGameObject(kWorld, glm::vec2(700, floorSize.y + draggableSize.y * 0.5f), "Draggable", levelActivationGrouper);
     SpriteRenderer::create(draggableObject, Path("Sprites", "UI", "Rectangle.png"), draggableSize);
     const Handle<RectangleCollider>& collider = RectangleCollider::create(draggableObject, draggableSize, kTrigger);
     draggableObject->addComponent<PlayerMoveable>();
@@ -74,7 +75,7 @@ namespace HW
 
     // Create door
     glm::vec2 doorSize = glm::vec2(viewportDimensions.x * 0.1f, viewportDimensions.y - floorSize.y);
-    const Handle<GameObject>& doorObject = level.createGameObject(kGUI, viewportDimensions - doorSize * 0.5f, "Door", levelActivationGrouper);
+    const Handle<GameObject>& doorObject = level.createGameObject(kWorld, viewportDimensions - doorSize * 0.5f, "Door", levelActivationGrouper);
     SpriteRenderer::create(doorObject, Path("Sprites", "MetalDoor.png"), doorSize);
     RectangleCollider::create(doorObject, doorSize);
     const Handle<MoveToPositionAnimator>& animator = MoveToPositionAnimator::create(doorObject, doorObject->getTransform()->getTranslation(), 1);
@@ -83,9 +84,9 @@ namespace HW
     // Create switch for door
     glm::vec2 switchSize = glm::vec2(100, 20);
     {
-      const Handle<GameObject>& switchObject = level.createGameObject(kGUI, glm::vec3(400, floorSize.y - switchSize.y * 0.5f, 0.01f), "Switch", levelActivationGrouper);
+      const Handle<GameObject>& switchObject = level.createGameObject(kWorld, glm::vec3(400, floorSize.y - switchSize.y * 0.5f, 0.01f), "Switch", levelActivationGrouper);
       SpriteRenderer::create(switchObject, Path("Sprites", "UI", "Rectangle.png"), switchSize, glm::vec4(1, 0, 0, 1));
-      const Handle<RectangleCollider>& collider = RectangleCollider::create(switchObject, switchSize, kTrigger, glm::vec2(0, switchSize.y * 0.5f));
+      const Handle<RectangleCollider>& collider = RectangleCollider::create(switchObject, switchSize, kTrigger, glm::vec2(0, switchSize.y + 1));
       const Handle<DoorSwitch>& switchScript = switchObject->addComponent<DoorSwitch>();
       switchScript->setDoor(doorObject);
       switchScript->setDraggable(draggableObject);
@@ -96,7 +97,7 @@ namespace HW
 
     // Create exit
     {
-      const Handle<GameObject>& exitObject = level.createGameObject(kGUI, glm::vec2(viewportDimensions.x + playerSize.x * 0.5f, floorSize.y + playerSize.y * 0.5f), "Exit", levelActivationGrouper);
+      const Handle<GameObject>& exitObject = level.createGameObject(kWorld, glm::vec2(viewportDimensions.x + playerSize.x * 0.5f, floorSize.y + playerSize.y * 0.5f), "Exit", levelActivationGrouper);
       const Handle<EventTriggerer>& eventTriggerer = EventTriggerer::create(exitObject, EventTriggerer::kOnce,
         [](const Handle<GameObject>& gameObject) -> bool
         {

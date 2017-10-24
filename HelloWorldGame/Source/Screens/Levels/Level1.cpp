@@ -39,7 +39,7 @@ namespace HW
 
     // Create background
     {
-      const Handle<GameObject>& background = level1.createGameObject(kWorld, glm::vec3(0, 0, -0.1f), "Background", levelActivationGrouper);
+      const Handle<GameObject>& background = level1.createGameObject(kWorld, glm::vec3(viewportDimensions * 0.5f, -0.1f), "Background", levelActivationGrouper);
       SpriteRenderer::create(background, Path("Sprites", "BinaryBackground.jpg"), viewportDimensions);
     }
 
@@ -48,6 +48,7 @@ namespace HW
     {
       const Handle<GameObject>& floorObject = level1.createGameObject(kWorld, glm::vec3(viewportDimensions.x * 0.5f, floorSize.y * 0.5f, 0), "Floor", levelActivationGrouper);
       SpriteRenderer::create(floorObject, Path("Sprites", "UI", "Rectangle.png"), floorSize);
+      RectangleCollider::create(floorObject, floorSize);
     }
 
     // Create player
@@ -57,6 +58,7 @@ namespace HW
       player->setParent(levelActivationGrouper);
     }
 
+    // Create obstacle preventing player from leaving
     {
       const Handle<GameObject>& leftHandObstacle = level1.createGameObject(kWorld, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelActivationGrouper);
       RectangleCollider::create(leftHandObstacle, glm::vec2(4, viewportDimensions.y));
