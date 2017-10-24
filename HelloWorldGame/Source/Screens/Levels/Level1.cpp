@@ -39,26 +39,26 @@ namespace HW
 
     // Create background
     {
-      //const Handle<GameObject>& background = level1.createGameObject(kWorld, glm::vec3(0, 0, -0.1f), "Background", levelActivationGrouper);
-      //SpriteRenderer::create(background, Path("Sprites", "BinaryBackground.jpg"), viewportDimensions);
+      const Handle<GameObject>& background = level1.createGameObject(kWorld, glm::vec3(0, 0, -0.1f), "Background", levelActivationGrouper);
+      SpriteRenderer::create(background, Path("Sprites", "BinaryBackground.jpg"), viewportDimensions);
     }
 
     // Create floor
     glm::vec2 floorSize = glm::vec2(viewportDimensions.x, viewportDimensions.y * 0.25f);
     {
-      const Handle<GameObject>& floorObject = level1.createGameObject(kWorld, glm::vec3(floorSize * 0.5f, -0.01f), "Floor", levelActivationGrouper);
+      const Handle<GameObject>& floorObject = level1.createGameObject(kWorld, glm::vec3(viewportDimensions.x * 0.5f, floorSize.y * 0.5f, 0), "Floor", levelActivationGrouper);
       SpriteRenderer::create(floorObject, Path("Sprites", "UI", "Rectangle.png"), floorSize);
     }
 
     // Create player
     glm::vec2 playerSize = glm::vec2(100, 100);
     {
-      const Handle<GameObject>& player = level1.createPlayer(playerSize, glm::vec3(0, 0, -0.01f));
+      const Handle<GameObject>& player = level1.createPlayer(playerSize, glm::vec3(viewportDimensions * 0.5f, -0.01f));
       player->setParent(levelActivationGrouper);
     }
 
     {
-      const Handle<GameObject>& leftHandObstacle = level1.createGameObject(kGUI, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelActivationGrouper);
+      const Handle<GameObject>& leftHandObstacle = level1.createGameObject(kWorld, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelActivationGrouper);
       RectangleCollider::create(leftHandObstacle, glm::vec2(4, viewportDimensions.y));
     }
 
