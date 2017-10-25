@@ -86,7 +86,7 @@ namespace HW
     {
       const Handle<GameObject>& switchObject = level.createGameObject(kWorld, glm::vec3(400, floorSize.y - switchSize.y * 0.5f, 0.01f), "Switch", levelActivationGrouper);
       SpriteRenderer::create(switchObject, Path("Sprites", "UI", "Rectangle.png"), switchSize, glm::vec4(1, 0, 0, 1));
-      const Handle<RectangleCollider>& collider = RectangleCollider::create(switchObject, switchSize, kTrigger, glm::vec2(0, switchSize.y + 1));
+      const Handle<RectangleCollider>& collider = RectangleCollider::create(switchObject, switchSize, kTrigger, glm::vec2(0, switchSize.y));
       const Handle<DoorSwitch>& switchScript = switchObject->addComponent<DoorSwitch>();
       switchScript->setDoor(doorObject);
       switchScript->setDraggable(draggableObject);
