@@ -61,6 +61,7 @@ namespace HW
     // Create obstacle preventing player from leaving
     {
       const Handle<GameObject>& leftHandObstacle = level1.createGameObject(kWorld, glm::vec2(-2, viewportDimensions.y * 0.5f), "LeftHandObstacle", levelActivationGrouper);
+      leftHandObstacle->setTag("PlayerObstacle");
       RectangleCollider::create(leftHandObstacle, glm::vec2(4, viewportDimensions.y));
     }
 
@@ -68,6 +69,7 @@ namespace HW
     glm::vec2 doorSize = glm::vec2(viewportDimensions.x * 0.1f, viewportDimensions.y - floorSize.y);
     {
       const Handle<GameObject>& doorObject = level1.createGameObject(kWorld, glm::vec3(viewportDimensions - doorSize * 0.5f, 0), "Door", levelActivationGrouper);
+      doorObject->setTag("PlayerObstacle");
       SpriteRenderer::create(doorObject, Path("Sprites", "MetalDoor.png"), doorSize);
       RectangleCollider::create(doorObject, doorSize);
     }

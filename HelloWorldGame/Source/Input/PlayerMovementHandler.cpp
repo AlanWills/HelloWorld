@@ -28,24 +28,23 @@ namespace HW
     {
       Inherited::onCollision(collider);
 
-      // Currently doesn't work because this is occurring before the game object update?
-      // So the value is being wiped
-      // Need to inline the functionality for now
-
-      glm::vec2 newVelocity = getDirectionVector();
-
-      if (collider->centre().x < getGameObject()->findComponent<Collider>()->centre().x)
+      if (collider->getGameObject()->getTag() == std::string("PlayerObstacle"))
       {
-        // Body has moved left into a collider
-        newVelocity.x = std::max(newVelocity.x, 0.0f);
-      }
-      else
-      {
-        // Body has moved right into a collider
-        newVelocity.x = std::min(newVelocity.x, 0.0f);
-      }
+        glm::vec2 newVelocity = getDirectionVector();
 
-      setDirectionVector(newVelocity);
+        if (collider->centre().x < getGameObject()->findComponent<Collider>()->centre().x)
+        {
+          // Body has moved left into a collider
+          newVelocity.x = std::max(newVelocity.x, 0.0f);
+        }
+        else
+        {
+          // Body has moved right into a collider
+          newVelocity.x = std::min(newVelocity.x, 0.0f);
+        }
+
+        setDirectionVector(newVelocity);
+      }
     }
 
     //------------------------------------------------------------------------------------------------
