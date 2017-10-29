@@ -54,7 +54,7 @@ namespace HW
     // Create player
     glm::vec2 playerSize = glm::vec2(100, 100);
     {
-      const Handle<GameObject>& player = level1.createPlayer(playerSize, glm::vec3(viewportDimensions * 0.5f, -0.01f));
+      const Handle<GameObject>& player = level1.createPlayer(playerSize, glm::vec3(viewportDimensions * 0.5f, 0));
       player->setParent(levelActivationGrouper);
     }
 
