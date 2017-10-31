@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <SecondsPerFrame>0.15</SecondsPerFrame>
+  <FramesDirectory>Sprites\Mine Explosion</FramesDirectory>
+  <Frames>
+    <Frame>Frame0.png</Frame>
+    <Frame>Frame1.png</Frame>
+    <Frame>Frame2.png</Frame>
+    <Frame>Frame3.png</Frame>
+    <Frame>Frame4.png</Frame>
+    <Frame>Frame5.png</Frame>
+    <Frame>Frame6.png</Frame>
+    <Frame>Frame7.png</Frame>
+    <Frame>Frame8.png</Frame>
+    <Frame>Frame9.png</Frame>
+    <Frame>Frame10.png</Frame>
+    <Frame>Frame11.png</Frame>
+    <Frame>Frame12.png</Frame>
+  </Frames>
+</Root>

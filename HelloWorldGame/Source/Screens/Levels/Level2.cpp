@@ -7,7 +7,7 @@
 #include "Rendering/SpriteRenderer.h"
 #include "Physics/RectangleCollider.h"
 #include "Physics/PlayerMoveable.h"
-#include "Screens/HelloWorldMainMenuScreen.h"
+#include "Screens/Levels/Level3.h"
 #include "Physics/DoorSwitch.h"
 #include "Animation/Animators/MoveToPositionAnimator.h"
 #include "Physics/PhysicsUtils.h"
@@ -73,7 +73,7 @@ namespace HW
     SpriteRenderer::create(draggableObject, Path("Sprites", "UI", "Rectangle.png"), draggableSize);
     const Handle<RectangleCollider>& collider = RectangleCollider::create(draggableObject, draggableSize, kTrigger);
     draggableObject->addComponent<PlayerMoveable>();
-    addSimulatedBody(collider, Handle<RigidBody2D>());
+    addSimulatedBody(collider.as<Collider>());
 
     // Create door
     glm::vec2 doorSize = glm::vec2(viewportDimensions.x * 0.1f, viewportDimensions.y - floorSize.y);
@@ -95,7 +95,7 @@ namespace HW
       switchScript->setDraggable(draggableObject);
       switchScript->setShutPosition(doorObject->getTransform()->getTranslation());
       switchScript->setOpenPosition(doorObject->getTransform()->getTranslation() + glm::vec3(0, doorSize.y * 0.5f, 0));
-      addSimulatedBody(collider, Handle<RigidBody2D>());
+      addSimulatedBody(collider.as<Collider>());
     }
 
     // Create exit
@@ -110,7 +110,8 @@ namespace HW
         {
           gameObject->getOwnerScreen()->die();
           clearSimulatedBodies();
-          HelloWorldMainMenuScreen::create();
+
+          Level3::create();
         });
     }
 

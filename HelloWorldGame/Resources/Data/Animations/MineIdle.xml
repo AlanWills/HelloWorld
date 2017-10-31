@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <SecondsPerFrame>0.15</SecondsPerFrame>
+  <FramesDirectory>Sprites\Mine Idle</FramesDirectory>
+  <Frames>
+    <Frame>Frame0.png</Frame>
+    <Frame>Frame1.png</Frame>
+    <Frame>Frame2.png</Frame>
+    <Frame>Frame3.png</Frame>
+    <Frame>Frame4.png</Frame>
+    <Frame>Frame5.png</Frame>
+    <Frame>Frame6.png</Frame>
+    <Frame>Frame7.png</Frame>
+  </Frames>
+</Root>

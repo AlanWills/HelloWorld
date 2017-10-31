@@ -148,6 +148,7 @@
     <ClCompile Include="Source\Screens\LevelScreenCreator.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp" />
     <ClCompile Include="Source\Screens\Levels\Level2.cpp" />
+    <ClCompile Include="Source\Screens\Levels\Level3.cpp" />
     <ClCompile Include="Source\UI\NewCodeDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +201,27 @@
     <Image Include="Resources\Textures\Sprites\BinaryBackground.jpg" />
     <Image Include="Resources\Textures\Sprites\ComputerTerminal.png" />
     <Image Include="Resources\Textures\Sprites\MetalDoor.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame0.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame1.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame10.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame11.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame12.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame2.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame3.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame4.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame5.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame6.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame7.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame8.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Explosion\Frame9.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Idle\Frame0.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Idle\Frame1.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Idle\Frame2.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Idle\Frame3.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Idle\Frame4.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Idle\Frame5.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Idle\Frame6.png" />
+    <Image Include="Resources\Textures\Sprites\Mine Idle\Frame7.png" />
     <Image Include="Resources\Textures\Sprites\Scientist.png" />
     <Image Include="Resources\Textures\Sprites\TerminalBackground.png" />
     <Image Include="Resources\Textures\Sprites\UI\ButtonDefault.png" />
@@ -232,9 +254,12 @@
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h" />
     <ClInclude Include="Headers\GraphicalFX\TypingTextEffect.h" />
     <ClInclude Include="Headers\Screens\Levels\Level2.h" />
+    <ClInclude Include="Headers\Screens\Levels\Level3.h" />
     <ClInclude Include="Headers\UI\NewCodeDialog.h" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="Resources\Data\Animations\MineExplosion.xml" />
+    <Xml Include="Resources\Data\Animations\MineIdle.xml" />
     <Xml Include="Resources\Data\Player\PlayerScriptCommands.xml" />
     <Xml Include="Resources\Data\Settings\Settings.xml" />
   </ItemGroup>
