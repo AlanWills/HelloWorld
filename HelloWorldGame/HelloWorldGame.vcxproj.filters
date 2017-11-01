@@ -367,5 +367,6 @@
     <Xml Include="Resources\Data\Player\PlayerScriptCommands.xml" />
     <Xml Include="Resources\Data\Animations\MineIdle.xml" />
     <Xml Include="Resources\Data\Animations\MineExplosion.xml" />
+    <Xml Include="Resources\Data\Screens\SplashScreen.xml" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level>
+  <Resources>
+    <Texture2Ds>
+      <Texture2D>Sprites\UI\CelesteGamesLogo.png</Texture2D>
+      <Texture2D>Sprites\UI\CelesteEngineLogo.png</Texture2D>
+    </Texture2Ds>
+  </Resources>
+  <GameObjects>
+    <GameObject layer="GUI" position="0.5%" name="Logo0">
+      
+    </GameObject>
+  </GameObjects>
+</Level>
