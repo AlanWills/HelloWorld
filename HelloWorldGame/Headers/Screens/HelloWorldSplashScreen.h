@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Screens/SplashScreenCreator.h"
+#include "Screens/Creation/SplashScreenCreator.h"
 
 
 namespace HW
