@@ -19,8 +19,7 @@ namespace HW
     }
 
     //------------------------------------------------------------------------------------------------
-    PlayerScriptCommandsDataConverter::PlayerScriptCommandsDataConverter(const ConstHandle<Data>& dataFile) :
-      Inherited(dataFile)
+    PlayerScriptCommandsDataConverter::PlayerScriptCommandsDataConverter(const ConstHandle<Data>& dataFile)
     {
       if (dataFile.is_null())
       {
@@ -32,8 +31,7 @@ namespace HW
     }
 
     //------------------------------------------------------------------------------------------------
-    PlayerScriptCommandsDataConverter::PlayerScriptCommandsDataConverter(const XMLElement* element) :
-      Inherited(element)
+    PlayerScriptCommandsDataConverter::PlayerScriptCommandsDataConverter(const XMLElement* element)
     {
       load(element);
     }

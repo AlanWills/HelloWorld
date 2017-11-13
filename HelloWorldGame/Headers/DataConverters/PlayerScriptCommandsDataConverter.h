@@ -2,7 +2,13 @@
 
 #include "DataConverters/DataConverter.h"
 #include "Code/ScriptCommandDefs.h"
+#include "Memory/ConstHandle.h"
 
+
+namespace CelesteEngine
+{
+  class Data;
+}
 
 namespace HW
 {
