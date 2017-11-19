@@ -21,10 +21,10 @@ namespace HW
   //------------------------------------------------------------------------------------------------
   void HelloWorldSplashScreen::create()
   {
-    const Handle<Screen>& screen = ScreenLoader::load(Path(getResourceManager()->getDataDirectoryPath(), "Screens", "SplashScreen.xml"));
+    const Handle<Screen>& screen = ScreenLoader::load(Path(getResourceManager()->getDataDirectoryPath(), "Screens", "SplashScreen2.xml"));
     HelloWorldSplashScreen splashScreen(screen);
 
-    const Handle<GameObject>& firstLogo = screen->findGameObjectWithName("Logo0");
+    /*const Handle<GameObject>& firstLogo = screen->findGameObjectWithName("Logo0");
     splashScreen.createSplashImage(firstLogo, Path("Sprites", "UI", "CelesteGamesLogo.png"));
     firstLogo->addComponent<Input::SplashScreenLogoSkipper>();
     
@@ -34,6 +34,6 @@ namespace HW
     secondLogo->findComponent<LimitedLifeTime>()->subscribeOnDeathCallback([](const Handle<GameObject>&) -> void
     {
       HelloWorldMainMenuScreen::create();
-    });
+    });*/
   }
 }
