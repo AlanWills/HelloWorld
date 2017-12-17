@@ -8,18 +8,22 @@
   </Resources>
   <GameObjects>
     <GameObject layer="GUI" position="0.5%, 0" name="Logo0">
-      <SpriteRenderer path="Sprites\UI\CelesteGamesLogo.png" size="0.9%" opacity="0"/>
+      <SpriteRenderer sprite="Sprites\UI\CelesteGamesLogo.png" size="0.9%" opacity="0"/>
       <OpacityLerper lerping_up="true" lerp_down_time="1" lerp_up_time="1" min_wait_time="0.2" max_wait_time="1"/>
       <LimitedLifeTime lifetime="3.2">
-        <Callback name="setActive" arguments="Logo1"/>
-        <Callback name="setShouldRender" arguments="Logo1"/>
+        <Callbacks>
+          <Callback name="setActive" arg="Logo1"/>
+          <Callback name="setShouldRender" arg="Logo1"/>
+        </Callbacks>
       </LimitedLifeTime>
     </GameObject>
     <GameObject layer="GUI" position="0.5%, 0" name="Logo1" active="false" should_render="false">
-      <SpriteRenderer path="Sprites\UI\CelesteEngineLogo.png" size="0.9%" opacity="0"/>
+      <SpriteRenderer sprite="Sprites\UI\CelesteEngineLogo.png" size="0.9%" opacity="0"/>
       <OpacityLerper lerping_up="true" lerp_down_time="1" lerp_up_time="1" min_wait_time="0.2" max_wait_time="1"/>
       <LimitedLifeTime lifetime="3.2">
-        <Callback name="killOwnerScreen"/>
+        <Callbacks>
+          <Callback name="killOwnerScreen"/>
+        </Callbacks>
       </LimitedLifeTime>
     </GameObject>
   </GameObjects>
