@@ -36,7 +36,7 @@ namespace HW
 
     const Handle<GameObject>& playGameButton = mainMenu.createGameObject(kGUI, glm::vec2(), "PlayButton");
     const Handle<Button>& playButton = UI::Button::create(playGameButton, "run()", 
-      [](const Handle<GameObject>& caller) -> void
+      [](EventArgs& e, const Handle<GameObject>& caller) -> void
       {
         caller->getOwnerScreen()->die();
         getScreenManager()->findScreen("Persistent")->die();
@@ -47,7 +47,7 @@ namespace HW
 
     const Handle<GameObject>& optionsMenuButton = mainMenu.createGameObject(kGUI, glm::vec2(), "OptionsButton");
     const Handle<Button>& optionsButton = UI::Button::create(optionsMenuButton, "options()",
-      [](const Handle<GameObject>& caller) -> void
+      [](EventArgs& e, const Handle<GameObject>& caller) -> void
       {
         caller->getOwnerScreen()->die();
         HelloWorldOptionsScreen::create();
@@ -56,7 +56,7 @@ namespace HW
     optionsButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);
 
     const Handle<GameObject>& exitGameButton = mainMenu.createGameObject(kGUI, glm::vec2(), "ExitButton");
-    const Handle<Button>& exitButton = UI::Button::create(exitGameButton, "quit()", [](const Handle<GameObject>&) -> void { Game::current()->exit(); });
+    const Handle<Button>& exitButton = UI::Button::create(exitGameButton, "quit()", [](EventArgs& e, const Handle<GameObject>&) -> void { Game::current()->exit(); });
     exitButton->getLabel()->findComponent<TextRenderer>()->setFontHeight(24);
 
     const Handle<GameObject>& buttonStackPanel = mainMenu.createGameObject(kGUI, viewportDimensions * 0.5f, "ButtonStackPanel");

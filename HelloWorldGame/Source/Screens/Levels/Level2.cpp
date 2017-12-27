@@ -106,7 +106,7 @@ namespace HW
         {
           return gameObject->getOwnerScreen()->findGameObjectWithName("Player")->getTransform()->getTranslation().x >= gameObject->getTransform()->getTranslation().x;
         },
-        [](const Handle<GameObject>& gameObject) -> void
+        [](EventArgs& e, const Handle<GameObject>& gameObject) -> void
         {
           gameObject->getOwnerScreen()->die();
           clearSimulatedBodies();

@@ -143,7 +143,6 @@
     <ClCompile Include="Source\Physics\PlayerMoveable.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldLoadingScreen.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldOptionsScreen.cpp" />
-    <ClCompile Include="Source\Screens\HelloWorldSplashScreen.cpp" />
     <ClCompile Include="Source\Screens\Levels\Level1.cpp" />
     <ClCompile Include="Source\Screens\LevelScreenCreator.cpp" />
     <ClCompile Include="Source\Screens\HelloWorldMainMenuScreen.cpp" />
@@ -248,7 +247,6 @@
     <ClInclude Include="Headers\Physics\PlayerMoveable.h" />
     <ClInclude Include="Headers\Screens\HelloWorldLoadingScreen.h" />
     <ClInclude Include="Headers\Screens\HelloWorldOptionsScreen.h" />
-    <ClInclude Include="Headers\Screens\HelloWorldSplashScreen.h" />
     <ClInclude Include="Headers\Screens\LevelScreenCreator.h" />
     <ClInclude Include="Headers\Screens\Levels\Level1.h" />
     <ClInclude Include="Headers\Screens\HelloWorldMainMenuScreen.h" />
@@ -260,11 +258,11 @@
   <ItemGroup>
     <Xml Include="Resources\Data\Animations\MineExplosion.xml" />
     <Xml Include="Resources\Data\Animations\MineIdle.xml" />
+    <Xml Include="Resources\Data\Screens\MainMenuScreen.xml" />
     <Xml Include="Resources\Data\Screens\SplashScreen.xml">
       <SubType>Designer</SubType>
     </Xml>
     <Xml Include="Resources\Data\Player\PlayerScriptCommands.xml" />
-    <Xml Include="Resources\Data\Screens\SplashScreen2.xml" />
     <Xml Include="Resources\Data\Settings\Settings.xml" />
   </ItemGroup>
   <ItemGroup>

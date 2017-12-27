@@ -2,6 +2,7 @@
 
 #include "Objects/Script.h"
 #include "Rendering/TextRenderer.h"
+#include "Events/Event.h"
 
 
 namespace CelesteEngine
@@ -35,8 +36,8 @@ namespace HW
       private:
         typedef CelesteEngine::Script Inherited;
 
-        void onTextInputtedCallback(char character);
-        void onKeyPressedCallback(int keyPressed);
+        void onTextInputtedCallback(EventArgs& e, char character);
+        void onKeyPressedCallback(EventArgs& e, int keyPressed);
 
         Handle<Rendering::TextRenderer> m_textRenderer;
         Handle<GameObject> m_caret;

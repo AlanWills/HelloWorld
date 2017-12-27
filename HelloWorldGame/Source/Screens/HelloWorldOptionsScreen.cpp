@@ -49,7 +49,7 @@ namespace HW
     UI::StackPanel::create(stackPanel, Vertical::kCentre, 50, masterVolume, musicVolume, sfxVolume);
 
     const Handle<GameObject>& closeButton = options.createGameObject(kGUI, glm::vec2(0, -200), "CloseButton", sfxVolume);
-    Button::create(closeButton, "Close", [](const Handle<GameObject>& gameObject) -> void
+    Button::create(closeButton, "Close", [](EventArgs& e, const Handle<GameObject>& gameObject) -> void
     {
       // Save changes
       Settings settings;

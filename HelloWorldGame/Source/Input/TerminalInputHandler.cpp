@@ -41,8 +41,8 @@ namespace HW
     {
       Inherited::onInitialize();
 
-      m_textInputtedEventHandle = getKeyboard().getTextInputtedEvent().subscribe(std::bind(&TerminalInputHandler::onTextInputtedCallback, this, std::placeholders::_1));
-      m_keyDownEventHandle = getKeyboard().getKeyDownEvent().subscribe(std::bind(&TerminalInputHandler::onKeyPressedCallback, this, std::placeholders::_1));
+      m_textInputtedEventHandle = getKeyboard().getTextInputtedEvent().subscribe(std::bind(&TerminalInputHandler::onTextInputtedCallback, this, std::placeholders::_1, std::placeholders::_2));
+      m_keyDownEventHandle = getKeyboard().getKeyDownEvent().subscribe(std::bind(&TerminalInputHandler::onKeyPressedCallback, this, std::placeholders::_1, std::placeholders::_2));
     }
 
     //------------------------------------------------------------------------------------------------
@@ -84,7 +84,7 @@ namespace HW
     }
 
     //------------------------------------------------------------------------------------------------
-    void TerminalInputHandler::onTextInputtedCallback(char character)
+    void TerminalInputHandler::onTextInputtedCallback(EventArgs& e, char character)
     {
       if (isActive() && !m_textRenderer.is_null())
       {
@@ -94,7 +94,7 @@ namespace HW
     }
 
     //------------------------------------------------------------------------------------------------
-    void TerminalInputHandler::onKeyPressedCallback(int keyPressed)
+    void TerminalInputHandler::onKeyPressedCallback(EventArgs& e, int keyPressed)
     {
       if (isActive() && !m_textRenderer.is_null())
       {

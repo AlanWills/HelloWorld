@@ -49,7 +49,7 @@ namespace HW
       TextRenderer::create(textObject, text, 22, Horizontal::kCentre, Vertical::kCentre);
 
       const Handle<GameObject>& closeButton = dialog.createGameObject(kGUI, glm::vec3(0, 0, 0.01f), "DialogText", dialogGrouper);
-      Button::create(closeButton, "Close", [](const Handle<GameObject>& gameObject) -> void
+      Button::create(closeButton, "Close", [](EventArgs& e, const Handle<GameObject>& gameObject) -> void
       {
         gameObject->getOwnerScreen()->die();
         getScreenManager()->findScreen("LevelScreen")->setActive(true);

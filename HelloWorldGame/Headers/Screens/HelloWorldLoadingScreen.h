@@ -36,7 +36,7 @@ void HelloWorldLoadingScreen::create()
   // Create object which will trigger the transition
   {
     const Handle<GameObject>& transitioner = loadingScreen.createGameObject(kGUI, viewportDimensions * 0.5f, "Transitioner");
-    LimitedLifeTime::create(transitioner, 3, [](const Handle<GameObject>& gameObject) -> void
+    LimitedLifeTime::create(transitioner, 3, [](EventArgs& e, const Handle<GameObject>& gameObject) -> void
     {
       gameObject->getOwnerScreen()->die();
       T::create();

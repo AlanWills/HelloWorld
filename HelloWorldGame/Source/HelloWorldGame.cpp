@@ -1,9 +1,9 @@
 #include "stdafx.h"
 
 #include "HelloWorldGame.h"
-#include "Screens/HelloWorldSplashScreen.h"
 #include "Audio/AudioSource.h"
 #include "Settings/Settings.h"
+#include "Screens/Loading/ScreenLoader.h"
 
 
 namespace HW
@@ -26,6 +26,6 @@ namespace HW
     const Handle<AudioSource>& audioSource = AudioSource::create(audio, Path("StartupMusic.wav"), kMusic, true);
     audioSource->play();
 
-    HelloWorldSplashScreen::create();
+    ScreenLoader::load(Path(getResourceManager()->getDataDirectoryPath(), "Screens", "SplashScreen.xml"));
   }
 }

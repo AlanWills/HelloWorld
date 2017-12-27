@@ -8,21 +8,28 @@
   </Resources>
   <GameObjects>
     <GameObject layer="GUI" position="0.5%, 0" name="Logo0">
-      <SpriteRenderer sprite="Sprites\UI\CelesteGamesLogo.png" size="0.9%" opacity="0"/>
+      <SpriteRenderer sprite="Sprites\UI\CelesteGamesLogo.png" size="0.9%" opacity="0" preserve_aspect_ratio="true"/>
       <OpacityLerper lerping_up="true" lerp_down_time="1" lerp_up_time="1" min_wait_time="0.2" max_wait_time="1"/>
-      <LimitedLifeTime lifetime="3.2">
+      <LimitedLifeTime lifetime="3.2" trigger_key="esc">
         <Callbacks>
-          <Callback name="setActive" arg="Logo1"/>
-          <Callback name="setShouldRender" arg="Logo1"/>
+          <Callback name="ActivateGameObject" arg="Delayer"/>
+        </Callbacks>
+      </LimitedLifeTime>
+    </GameObject>
+    <GameObject layer="GUI" name="Delayer" active="false">
+      <LimitedLifeTime lifetime="0.1">
+        <Callbacks>
+          <Callback name="ActivateGameObject" arg="Logo1"/>
+          <Callback name="RenderGameObject" arg="Logo1"/>
         </Callbacks>
       </LimitedLifeTime>
     </GameObject>
     <GameObject layer="GUI" position="0.5%, 0" name="Logo1" active="false" should_render="false">
-      <SpriteRenderer sprite="Sprites\UI\CelesteEngineLogo.png" size="0.9%" opacity="0"/>
+      <SpriteRenderer sprite="Sprites\UI\CelesteEngineLogo.png" size="0.9%" opacity="0" preserve_aspect_ratio="true"/>
       <OpacityLerper lerping_up="true" lerp_down_time="1" lerp_up_time="1" min_wait_time="0.2" max_wait_time="1"/>
-      <LimitedLifeTime lifetime="3.2">
+      <LimitedLifeTime lifetime="3.2" trigger_key="esc">
         <Callbacks>
-          <Callback name="killOwnerScreen"/>
+          <Callback name="TransitionToScreen" arg="Screens\MainMenuScreen.xml"/>
         </Callbacks>
       </LimitedLifeTime>
     </GameObject>
