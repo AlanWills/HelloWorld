@@ -78,6 +78,9 @@
     <ClCompile Include="Source\Screens\Levels\Level3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\DataConverters\GraphicalFX\TypingTextEffectDataConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav">
@@ -353,6 +356,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Screens\Levels\Level3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\DataConverters\GraphicalFX\TypingTextEffectDataConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

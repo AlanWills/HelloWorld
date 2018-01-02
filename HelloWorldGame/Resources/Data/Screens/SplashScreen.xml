@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level>
+<Screen name="Splash">
   <Resources>
     <Texture2Ds>
       <Texture2D>Sprites\UI\CelesteGamesLogo.png</Texture2D>
@@ -11,27 +11,27 @@
       <SpriteRenderer sprite="Sprites\UI\CelesteGamesLogo.png" size="0.9%" opacity="0" preserve_aspect_ratio="true"/>
       <OpacityLerper lerping_up="true" lerp_down_time="1" lerp_up_time="1" min_wait_time="0.2" max_wait_time="1"/>
       <LimitedLifeTime lifetime="3.2" trigger_key="esc">
-        <Callbacks>
+        <OnDeathCallbacks>
           <Callback name="ActivateGameObject" arg="Delayer"/>
-        </Callbacks>
+        </OnDeathCallbacks>
       </LimitedLifeTime>
     </GameObject>
     <GameObject layer="GUI" name="Delayer" active="false">
       <LimitedLifeTime lifetime="0.1">
-        <Callbacks>
+        <OnDeathCallbacks>
           <Callback name="ActivateGameObject" arg="Logo1"/>
           <Callback name="RenderGameObject" arg="Logo1"/>
-        </Callbacks>
+        </OnDeathCallbacks>
       </LimitedLifeTime>
     </GameObject>
     <GameObject layer="GUI" position="0.5%, 0" name="Logo1" active="false" should_render="false">
       <SpriteRenderer sprite="Sprites\UI\CelesteEngineLogo.png" size="0.9%" opacity="0" preserve_aspect_ratio="true"/>
       <OpacityLerper lerping_up="true" lerp_down_time="1" lerp_up_time="1" min_wait_time="0.2" max_wait_time="1"/>
       <LimitedLifeTime lifetime="3.2" trigger_key="esc">
-        <Callbacks>
+        <OnDeathCallbacks>
           <Callback name="TransitionToScreen" arg="Screens\MainMenuScreen.xml"/>
-        </Callbacks>
+        </OnDeathCallbacks>
       </LimitedLifeTime>
     </GameObject>
   </GameObjects>
-</Level>
+</Screen>

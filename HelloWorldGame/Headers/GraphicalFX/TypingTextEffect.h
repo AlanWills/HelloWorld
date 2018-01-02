@@ -14,8 +14,8 @@ class TypingTextEffect : public CelesteEngine::Script
   DECLARE_SCRIPT(TypingTextEffect)
 
   public:
-    float getAverageTypeSpeed() const { return m_averageTypeSpeed; }
-    void setAverageTypeSpeed(float averageTypeSpeed) { m_averageTypeSpeed = averageTypeSpeed; }
+    float getDelay() const { return m_delay; }
+    void setDelay(float averageTypeSpeed) { m_delay = averageTypeSpeed; }
 
     float getTypeSpeedVariation() const { return m_typeSpeedVariation; }
     void setTypeSpeedVariation(float typeSpeedVariation) { m_typeSpeedVariation = typeSpeedVariation; }
@@ -32,16 +32,16 @@ class TypingTextEffect : public CelesteEngine::Script
     static Handle<TypingTextEffect> create(
       const Handle<GameObject>& gameObject, 
       const std::vector<std::string>& text,
-      float averageTypeSpeed,
+      float delay,
       float typeSpeedVariation);
 
     static Handle<TypingTextEffect> create(
       const Handle<GameObject>& gameObject, 
       const std::string& text,
-      float averageTypeSpeed,
+      float delay,
       float typeSpeedVariation)
     {
-      return create(gameObject, std::vector<std::string> { text }, averageTypeSpeed, typeSpeedVariation);
+      return create(gameObject, std::vector<std::string> { text }, delay, typeSpeedVariation);
     }
 
   protected:
@@ -59,7 +59,7 @@ class TypingTextEffect : public CelesteEngine::Script
 
     float m_currentTimer;
     float m_nextTimer;
-    float m_averageTypeSpeed;
+    float m_delay;
     float m_typeSpeedVariation;
 
     std::vector<std::string> m_text;

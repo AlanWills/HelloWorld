@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level>
+<Screen name="Main Menu">
   <GameObjects>
-    <GameObject layer="GUI" position="0.5%, 0.25%, 0" name="PlayButton">
-      <Button text="Play">
-        <Callbacks>
+    <GameObject layer="GUI" name="Title" position="0.5%, 0.8%, 0">
+      <TextRenderer font_height="32" horizontal_alignment="centre">
+        <Lines>
+          <Line text="Hello World"/>
+        </Lines>
+      </TextRenderer>
+      <TextBox/>
+      <TypingTextEffect text="Hello World" delay="0.3" variation="0.2"/>
+    </GameObject>
+    <GameObject layer="GUI" name="PlayButton">
+      <Button text="Play" font_height="24">
+        <LeftClickCallbacks>
           <Callback name="KillOwnerScreen"/>
-        </Callbacks>
+        </LeftClickCallbacks>
       </Button>
     </GameObject>
-    <GameObject layer="GUI" position="0.5%, 0.5%, 0" name="OptionsButton">
-      <Button text="Options">
-        <Callbacks>
+    <GameObject layer="GUI" name="OptionsButton">
+      <Button text="Options" font_height="24">
+        <LeftClickCallbacks>
           <Callback name="KillOwnerScreen"/>
-        </Callbacks>
+        </LeftClickCallbacks>
       </Button>
     </GameObject>
-    <GameObject layer="GUI" position="0.5%, 0.75%, 0" name="ExitButton">
-      <Button text="Exit">
-        <Callbacks>
+    <GameObject layer="GUI" name="ExitButton">
+      <Button text="Exit" font_height="24">
+        <LeftClickCallbacks>
           <Callback name="ExitGame"/>
-        </Callbacks>
+        </LeftClickCallbacks>
       </Button>
+    </GameObject>
+    <GameObject layer="GUI" position="0.5%, 0" name="LayoutStackPanel">
+      <StackPanel orientation="vertical" vertical_alignment="centre" padding="20">
+        <Children>
+          <Child name="PlayButton"/>
+          <Child name="OptionsButton"/>
+          <Child name="ExitButton"/>
+        </Children>
+      </StackPanel>
     </GameObject>
   </GameObjects>
-</Level>
+</Screen>

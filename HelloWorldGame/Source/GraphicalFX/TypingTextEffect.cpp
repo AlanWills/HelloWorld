@@ -20,7 +20,7 @@ namespace HW
     m_textBox(),
     m_currentTimer(0),
     m_nextTimer(0),
-    m_averageTypeSpeed(0),
+    m_delay(0),
     m_text(),
     m_currentLine(0),
     m_keyPressSoundPaths { Path("KeyPresses", "KeyPress1.wav"), Path("KeyPresses", "KeyPress2.wav"), Path("KeyPresses", "KeyPress3.wav") },
@@ -65,7 +65,7 @@ namespace HW
     {
       size_t index = m_textBox->getTextRenderer()->getLineLength(0);
       m_currentTimer = 0;
-      m_nextTimer = (index == m_text[m_currentLine].size() - 1) ? 2 : m_generator.generate(m_averageTypeSpeed - m_typeSpeedVariation, m_averageTypeSpeed + m_typeSpeedVariation);  // Creates pause after final letter
+      m_nextTimer = (index == m_text[m_currentLine].size() - 1) ? 2 : m_generator.generate(m_delay - m_typeSpeedVariation, m_delay + m_typeSpeedVariation);  // Creates pause after final letter
 
       if (index == m_text[m_currentLine].size())
       {
@@ -95,7 +95,7 @@ namespace HW
     m_textBox.reset();
     m_currentTimer = 0;
     m_nextTimer = 0;
-    m_averageTypeSpeed = 0;
+    m_delay = 0;
     m_typeSpeedVariation = 0;
     m_text.clear();
     m_currentLine = 0;
@@ -106,7 +106,7 @@ namespace HW
   Handle<TypingTextEffect> TypingTextEffect::create(
     const Handle<GameObject>& gameObject, 
     const std::vector<std::string>& text,
-    float averageTypeSpeed,
+    float delay,
     float typeSpeedVariation)
   {
     if (gameObject.is_null())
@@ -117,7 +117,7 @@ namespace HW
 
     const Handle<TypingTextEffect>& typingTextEffect = gameObject->addComponent<TypingTextEffect>();
     typingTextEffect->setText(text);
-    typingTextEffect->setAverageTypeSpeed(averageTypeSpeed);
+    typingTextEffect->setDelay(delay);
     typingTextEffect->setTypeSpeedVariation(typeSpeedVariation);
 
     return typingTextEffect;
