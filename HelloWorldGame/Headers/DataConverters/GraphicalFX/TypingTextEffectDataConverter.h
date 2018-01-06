@@ -9,9 +9,9 @@
 namespace HW
 {
 
-class TypingTextEffectDataConverter : public CelesteEngine::ComponentDataConverter<TypingTextEffect>
+class TypingTextEffectDataConverter : public CelesteEngine::ComponentDataConverter
 {
-  DECLARE_COMPONENT_DATA_CONVERTER(TypingTextEffectDataConverter, TypingTextEffect, "TypingTextEffect")
+  DECLARE_COMPONENTDATA_CONVERTER(TypingTextEffect)
 
   public:
     TypingTextEffectDataConverter();
@@ -25,11 +25,8 @@ class TypingTextEffectDataConverter : public CelesteEngine::ComponentDataConvert
     float getTypeSpeedVariation() const { return m_typeSpeedVariation.getValue(); }
     const std::string& getTypeSpeedVariationXMLName() const { return m_typeSpeedVariation.getAttributeName(); }
 
-  protected:
-    void doSetValues(const Handle<TypingTextEffect>& typingTextEffect) override;
-
   private:
-    typedef CelesteEngine::ComponentDataConverter<TypingTextEffect> Inherited;
+    typedef CelesteEngine::ComponentDataConverter Inherited;
 
     StringAttribute m_text;
     FloatAttribute m_delay;

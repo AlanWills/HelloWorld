@@ -19,10 +19,8 @@ namespace HW
   }
 
   //------------------------------------------------------------------------------------------------
-  void TypingTextEffectDataConverter::doSetValues(const Handle<TypingTextEffect>& typingTextEffect)
+  void TypingTextEffectDataConverter::doSetValues(const Handle<TypingTextEffect>& typingTextEffect) const
   {
-    Inherited::doSetValues(typingTextEffect);
-
     typingTextEffect->setText(getText());
     typingTextEffect->setDelay(getDelay());
     typingTextEffect->setTypeSpeedVariation(getTypeSpeedVariation());

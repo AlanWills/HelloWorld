@@ -88,15 +88,29 @@
   </GameObjects>
 </Screen>
 
+<!--
+// Have to add respecting go activeness to the game object loader or whatever is calling this?
+// Need to test component registry and registration of all components
+// Need to retest component data converter registry class-->
+
+<!--Add all other registries to registries folder-->
+
+<!--Include path for animation data converter-->
+
+<!--Need some kind of automatic data converter that just adds the component to the game object without needing to create one
+How will we register this so it's picked up by the screen loader.  Move data converter registration to component class.  
+By default a component is registered with a standard ComponentDataConverter<T>, but it can be replaced by creating a custom class
+and using DECLARE/REGISTER to overwrite the stored converter in the registry-->
+
+<!--Hook up all parents after all game objects have been created, not as they are so order doesn't matter-->
+
 <!--There is a bug with the button at the moment - the click behaviour needs to be different from the callback behaviour
 When we click, we should update the texture, but only trigger stuff when we release the mouse
 We need to update the mouse interaction handler to have a release event and then subscribe the correct callbacks to the correct places-->
 
 <!--Bug with slider - just hovering over mouse with it down causes problems-->
 
-<!--Need some kind of automatic data converter that just adds the component to the game object without needing to create one
-How will we register this so it's picked up by the screen loader-->
-
 <!--Refactor the script commands to use the new data converter element system-->
 
 <!--Find component in children?-->
+<!--Messages between game objects for easier synchronisation?  See how Unity does this-->

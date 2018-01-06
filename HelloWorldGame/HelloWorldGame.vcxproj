@@ -133,7 +133,6 @@
     <ClCompile Include="Source\Compiler\Compiler.cpp" />
     <ClCompile Include="Source\DataConverters\GraphicalFX\TypingTextEffectDataConverter.cpp" />
     <ClCompile Include="Source\DataConverters\PlayerScriptCommandsDataConverter.cpp" />
-    <ClCompile Include="Source\DataConverters\UI\OptionsScreenUIManagerDataConverter.cpp" />
     <ClCompile Include="Source\GraphicalFX\TypingTextEffect.cpp" />
     <ClCompile Include="Source\Input\PlayerMovementHandler.cpp" />
     <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
@@ -242,7 +241,6 @@
     <ClInclude Include="Headers\Compiler\Compiler.h" />
     <ClInclude Include="Headers\DataConverters\GraphicalFX\TypingTextEffectDataConverter.h" />
     <ClInclude Include="Headers\DataConverters\PlayerScriptCommandsDataConverter.h" />
-    <ClInclude Include="Headers\DataConverters\UI\OptionsScreenUIManagerDataConverter.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
     <ClInclude Include="Headers\Input\PlayerMovementHandler.h" />
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />

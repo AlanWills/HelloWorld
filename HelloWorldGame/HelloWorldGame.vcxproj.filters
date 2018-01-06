@@ -84,9 +84,6 @@
     <ClCompile Include="Source\UI\OptionsScreenUIManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\DataConverters\UI\OptionsScreenUIManagerDataConverter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav">
@@ -368,9 +365,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Headers\UI\OptionsScreenUIManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\DataConverters\UI\OptionsScreenUIManagerDataConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
