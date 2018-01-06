@@ -81,6 +81,12 @@
     <ClCompile Include="Source\DataConverters\GraphicalFX\TypingTextEffectDataConverter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\UI\OptionsScreenUIManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DataConverters\UI\OptionsScreenUIManagerDataConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav">
@@ -361,6 +367,12 @@
     <ClInclude Include="Headers\DataConverters\GraphicalFX\TypingTextEffectDataConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\UI\OptionsScreenUIManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\DataConverters\UI\OptionsScreenUIManagerDataConverter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resources\Data\Settings\Settings.xml" />
@@ -369,5 +381,7 @@
     <Xml Include="Resources\Data\Animations\MineExplosion.xml" />
     <Xml Include="Resources\Data\Screens\SplashScreen.xml" />
     <Xml Include="Resources\Data\Screens\MainMenuScreen.xml" />
+    <Xml Include="Resources\Data\Screens\OptionsScreen.xml" />
+    <Xml Include="Resources\Data\Screens\Levels\Level1.xml" />
   </ItemGroup>
 </Project>

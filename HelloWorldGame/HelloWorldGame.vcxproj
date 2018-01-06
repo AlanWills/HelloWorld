@@ -133,6 +133,7 @@
     <ClCompile Include="Source\Compiler\Compiler.cpp" />
     <ClCompile Include="Source\DataConverters\GraphicalFX\TypingTextEffectDataConverter.cpp" />
     <ClCompile Include="Source\DataConverters\PlayerScriptCommandsDataConverter.cpp" />
+    <ClCompile Include="Source\DataConverters\UI\OptionsScreenUIManagerDataConverter.cpp" />
     <ClCompile Include="Source\GraphicalFX\TypingTextEffect.cpp" />
     <ClCompile Include="Source\Input\PlayerMovementHandler.cpp" />
     <ClCompile Include="Source\Input\SplashScreenLogoSkipper.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Source\Screens\Levels\Level2.cpp" />
     <ClCompile Include="Source\Screens\Levels\Level3.cpp" />
     <ClCompile Include="Source\UI\NewCodeDialog.cpp" />
+    <ClCompile Include="Source\UI\OptionsScreenUIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\ButtonHover.wav" />
@@ -240,6 +242,7 @@
     <ClInclude Include="Headers\Compiler\Compiler.h" />
     <ClInclude Include="Headers\DataConverters\GraphicalFX\TypingTextEffectDataConverter.h" />
     <ClInclude Include="Headers\DataConverters\PlayerScriptCommandsDataConverter.h" />
+    <ClInclude Include="Headers\DataConverters\UI\OptionsScreenUIManagerDataConverter.h" />
     <ClInclude Include="Headers\HelloWorldGame.h" />
     <ClInclude Include="Headers\Input\PlayerMovementHandler.h" />
     <ClInclude Include="Headers\Input\SplashScreenLogoSkipper.h" />
@@ -256,11 +259,18 @@
     <ClInclude Include="Headers\Screens\Levels\Level2.h" />
     <ClInclude Include="Headers\Screens\Levels\Level3.h" />
     <ClInclude Include="Headers\UI\NewCodeDialog.h" />
+    <ClInclude Include="Headers\UI\OptionsScreenUIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resources\Data\Animations\MineExplosion.xml" />
     <Xml Include="Resources\Data\Animations\MineIdle.xml" />
+    <Xml Include="Resources\Data\Screens\Levels\Level1.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="Resources\Data\Screens\MainMenuScreen.xml" />
+    <Xml Include="Resources\Data\Screens\OptionsScreen.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="Resources\Data\Screens\SplashScreen.xml">
       <SubType>Designer</SubType>
     </Xml>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Screen name="Options">
+  <GameObjects>
+    <GameObject layer="GUI" position="0.5%, 0.8%, 0" name="Title">
+      <TextRenderer font_height="30">
+        <Lines>
+          <Line text="Options"/>
+        </Lines>
+      </TextRenderer>
+    </GameObject>
+    <!--Master Volume-->
+    <GameObject layer="GUI" name="MasterVolumeSlider">
+      <SpriteRenderer sprite="Sprites\UI\Rectangle.png" size="400,30"/>
+      <Slider min="0" max="1" value="1"/>
+    </GameObject>
+    <GameObject layer="GUI" name="MasterVolumeValueText" position="220,0,0" parent="MasterVolumeSlider">
+      <TextRenderer font_height="16" horizontal_alignment="left">
+        <Lines>
+          <Line text=""/>
+        </Lines>
+      </TextRenderer>
+    </GameObject>
+    <GameObject layer="GUI" name="MasterVolumeLabelText" position="-220,0,0" parent="MasterVolumeSlider">
+      <TextRenderer font_height="16" horizontal_alignment="right">
+        <Lines>
+          <Line text="Master Volume"/>
+        </Lines>
+      </TextRenderer>
+    </GameObject>
+    <!--Music Volume-->
+    <GameObject layer="GUI" name="MusicVolumeSlider">
+      <SpriteRenderer sprite="Sprites\UI\Rectangle.png" size="400,30"/>
+      <Slider min="0" max="1" value="0"/>
+    </GameObject>
+    <GameObject layer="GUI" name="MusicVolumeValueText" position="220,0,0" parent="MusicVolumeSlider">
+      <TextRenderer font_height="16" horizontal_alignment="left">
+        <Lines>
+          <Line text=""/>
+        </Lines>
+      </TextRenderer>
+    </GameObject>
+    <GameObject layer="GUI" name="MusicVolumeLabelText" position="-220,0,0" parent="MusicVolumeSlider">
+      <TextRenderer font_height="16" horizontal_alignment="right">
+        <Lines>
+          <Line text="Music Volume"/>
+        </Lines>
+      </TextRenderer>
+    </GameObject>
+    <!--SFX Volume-->
+    <GameObject layer="GUI" name="SFXVolumeSlider">
+      <SpriteRenderer sprite="Sprites\UI\Rectangle.png" size="400,30"/>
+      <Slider min="0" max="1" value="0"/>
+    </GameObject>
+    <GameObject layer="GUI" name="SFXVolumeValueText" position="220,0,0" parent="SFXVolumeSlider">
+      <TextRenderer font_height="16" horizontal_alignment="left">
+        <Lines>
+          <Line text=""/>
+        </Lines>
+      </TextRenderer>
+    </GameObject>
+    <GameObject layer="GUI" name="SFXVolumeLabelText" position="-220,0,0" parent="SFXVolumeSlider">
+      <TextRenderer font_height="16" horizontal_alignment="right">
+        <Lines>
+          <Line text="SFX Volume"/>
+        </Lines>
+      </TextRenderer>
+    </GameObject>
+    <!--Volume Grouper-->
+    <GameObject layer="GUI" name="VolumeStackPanel" position="0.5%">
+      <StackPanel orientation="vertical" vertical_alignment="centre" padding="50">
+        <Children>
+          <Child name="MasterVolumeSlider"/>
+          <Child name="MusicVolumeSlider"/>
+          <Child name="SFXVolumeSlider"/>
+        </Children>
+      </StackPanel>
+    </GameObject>
+    <GameObject layer="GUI" name="CloseButton" parent="SFXVolumeSlider" position="0,-200,0">
+      <Button text="Close" font_height="20">
+        <LeftClickCallbacks>
+          <Callback name="TransitionToScreen" arg="Screens\MainMenuScreen.xml"/>
+        </LeftClickCallbacks>
+      </Button>
+    </GameObject>
+    <GameObject layer="GUI" name="OptionsScreenUIManager">
+      <OptionsScreenUIManager/>
+    </GameObject>
+  </GameObjects>
+</Screen>
+
+<!--There is a bug with the button at the moment - the click behaviour needs to be different from the callback behaviour
+When we click, we should update the texture, but only trigger stuff when we release the mouse
+We need to update the mouse interaction handler to have a release event and then subscribe the correct callbacks to the correct places-->
+
+<!--Bug with slider - just hovering over mouse with it down causes problems-->
+
+<!--Need some kind of automatic data converter that just adds the component to the game object without needing to create one
+How will we register this so it's picked up by the screen loader-->
+
+<!--Refactor the script commands to use the new data converter element system-->
+
+<!--Find component in children?-->
