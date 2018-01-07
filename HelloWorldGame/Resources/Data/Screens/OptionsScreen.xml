@@ -89,18 +89,16 @@
 </Screen>
 
 <!--
-// Have to add respecting go activeness to the game object loader or whatever is calling this?
+// Have to add respecting game object activeness to the game object loader or whatever is calling this?
 // Need to test component registry and registration of all components
 // Need to retest component data converter registry class-->
+<!--Need a way of loading all child elements using registered data converters - 
+this will allow us to move component loading code to the game object loader-->
 
 <!--Add all other registries to registries folder-->
 
 <!--Include path for animation data converter-->
-
-<!--Need some kind of automatic data converter that just adds the component to the game object without needing to create one
-How will we register this so it's picked up by the screen loader.  Move data converter registration to component class.  
-By default a component is registered with a standard ComponentDataConverter<T>, but it can be replaced by creating a custom class
-and using DECLARE/REGISTER to overwrite the stored converter in the registry-->
+<!--Need to textdataconverter element for path-->
 
 <!--Hook up all parents after all game objects have been created, not as they are so order doesn't matter-->
 
